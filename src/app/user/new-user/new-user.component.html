@@ -1,0 +1,223 @@
+<div class="container entry-form">
+    <div class="row">
+        <div class="col entry-form-col">
+            <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+                <div ngModelGroup="personDetails" #personalDetail="ngModelGroup">
+                    <div class="form-group row">
+                        <div class="col-md-8 offset-md-4">
+                            <h2 class="page-title">User Registration</h2>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4 field-label-div">
+                            <label class="col-form-label">First Name</label>
+                        </div>
+                        <div class="col-md-8 field-value-div">
+                            <input type="text" class="form-control form-control-sm" placeholder="Enter your First Name" name="firstname" ngModel required #fname="ngModel">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4 field-label-div">
+                            <label class="col-form-label">Last Name</label>
+                        </div>
+                        <div class="col-md-8 field-value-div">
+                            <input type="text" class="form-control form-control-sm" placeholder="Enter your Last Name" name="lastname" ngModel required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4 field-label-div">
+                            <label class="col-form-label">User Name</label>
+                        </div>
+                        <div class="col-md-8 field-value-div">
+                            <input type="username" class="form-control form-control-sm" name="username" ngModel minlength="2" maxlength="20" #username="ngModel" required />
+                        </div>
+                    </div>
+                    <p class="invalid-input">
+                        <span *ngIf="username.invalid && username.touched"
+                        >Please enter valid input</span>
+                    </p>
+                    <div class="form-group row">
+                        <div class="col-md-4 field-label-div">
+                            <label class="col-form-label">Password</label>
+                        </div>
+                        <div class="col-md-8 field-value-div">
+                            <input type="password" class="form-control form-control-sm" name="password" ngModel minlength="2" maxlength="20" #password="ngModel" required />
+                        </div>
+                    </div>
+                    <p class="invalid-input">
+                        <span *ngIf="password.invalid && password.touched"
+                        >Please enter valid input</span>
+                    </p>
+                    <div class="form-group row" style="margin-bottom: 0.5rem;">
+                        <div class="col-md-4 field-label-div">
+                            <label class="col-form-label">Birthdate</label>
+                        </div>
+                        <div class="col-md-8 field-value-div">
+                            <input type="date" class="form-control form-control-sm" id="datepicker" name="birthday" ngModel required>
+                        </div>
+                    </div>
+                    <div class="form-group row" style="margin-bottom: 0.5rem;">
+                        <div class="col-md-4 field-label-div">
+                            <label class="col-form-label">Gender</label>
+                        </div>
+                        <div class="col-md-8 field-value-div">
+                            <div class="form-check form-check-inline" >
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="m" ngModel required>
+                                <label class="form-label" for="male">
+                                Male
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline" >
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="f" ngModel required>
+                                <label class="form-label" for="female">
+                                Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4 field-label-div">
+                            <label class="col-form-label">Phone No</label>
+                        </div>
+                        <div class="col-md-8 field-value-div">
+                            <input type="number" class="form-control form-control-sm" name="phoneno" ngModel required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4 field-label-div">
+                            <label class="col-form-label">Email-Id</label>
+                        </div>
+                        <div class="col-md-8 field-value-div">
+                            <input type="text" class="form-control form-control-sm" name="email" ngModel required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4 field-label-div">
+                            <label class="col-form-label">Permnant Address</label>
+                        </div>
+                        <div class="col-md-8 field-value-div">
+                            <input type="text" class="form-control form-control-sm" name="address" ngModel>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8 offset-md-4">
+                        <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+                    </div>
+                </div>                
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="form">   
+
+  
+    <div class="row entry-form">
+    <div class="register-form col-md-8">
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+  
+      <div ngModelGroup="personDetails" #personalDetail="ngModelGroup">    
+      <div class="row">
+        <div class="col-6">
+          <label for="firstname" class="form-label">First Name</label>
+          <input type="text" class="form-control" placeholder="Enter your First Name" name="firstname" ngModel required #fname="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <label for="lastname" class="form-label">Last Name</label>
+          <input type="text" class="form-control" placeholder="Enter your Last Name" name="lastname" ngModel required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <label for="username" class="form-label">User Name</label>
+          <input type="username" class="form-control" name="username" ngModel minlength="2" maxlength="20" #username="ngModel" required />
+        </div>
+      </div>
+        <p class="invalid-input">
+            <span *ngIf="username.invalid && username.touched"
+            >Please enter valid input</span>
+        </p>
+
+      <div class="row">
+        <div class="col-6">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" ngModel minlength="2" maxlength="20" #password="ngModel" required />
+        </div>
+      </div>
+      <p class="invalid-input">
+        <span *ngIf="password.invalid && password.touched"
+        >Please enter valid input</span>
+      </p>
+
+      <div class="row">
+        <div class="col-6">
+          <label for="datepicker" class="form-label">Birthdate</label>
+          <input type="date" class="form-control" id="datepicker" name="birthday" ngModel required>
+        </div>
+      </div>
+      
+      <div class="row-gender">
+        <div class="col">
+          <div class="row">
+            <label for="gender" class="form-label">Gender</label>
+          </div>
+  
+          <div class="row">
+            <div class="col">
+              <div class="form-check form-check-inline" >
+                <input class="form-check-input" type="radio" name="gender" id="male" value="m" ngModel required>
+                <label class="form-label" for="male">
+                  Male
+                </label>
+              </div>
+              <div class="form-check form-check-inline" >
+                <input class="form-check-input" type="radio" name="gender" id="female" value="f" ngModel required>
+                <label class="form-label" for="female">
+                  Female
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-6">
+          <label for="phoneno" class="form-label">Phone No</label>
+          <input type="number" class="form-control" name="phoneno" ngModel required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <label for="email" class="form-label">Email-Id</label>
+          <input type="text" class="form-control" name="email" ngModel required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-9">
+          <label for="address" class="form-label">Permnant Address</label>
+          <input type="text" class="form-control" name="address" ngModel>
+        </div>
+      </div>
+        
+      <div>
+        <small *ngIf="personalDetail.invalid && personalDetail.touched ">Some of the required fileds does not have valid value!</small>
+      </div>
+      
+    </div>
+  
+      <div class="footer">
+        <button type="submit" value="Submit" id="btn" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    </div>
+  </div>
+  </div> -->

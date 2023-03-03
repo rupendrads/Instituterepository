@@ -1,0 +1,76 @@
+<div class="container entry-form">
+    <div class="row">
+        <div class="col entry-form-col sign-in-form">
+            <form #userLogin="ngForm">
+            <div class="form-group row">
+                <div class="col-md-12 title">
+                    <h1 class="page-title">User Login</h1>
+                    <span>Don't have an Account? <a>Sign Up</a></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 field-label-div">
+                    <label class="col-form-label">User Name</label>
+                </div>
+                <div class="col-md-8 field-value-div">
+                    <input type="username" class="form-control form-control-sm" name="username" ngModel minlength="2" maxlength="20" #username="ngModel" required />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 field-label-div">
+                    <label class="col-form-label">Password</label>
+                </div>
+                <div class="col-md-8 field-value-div">
+                    <input type="password" class="form-control form-control-sm" name="password" ngModel minlength="2" maxlength="20" #password="ngModel" required />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-8 offset-md-4">
+                    <a>forgot your password?</a>
+                </div>
+                <div class="col-md-8 offset-md-4">
+                    <button type="submit" value="Submit" class="btn btn-primary" [disabled]="userLogin.invalid">Login</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>    
+
+<!-- <div class="user-auth">
+	<div style="padding: 20px;border: 1px solid gray;border-radius: 10px;">
+		<div>
+		  <h1>User Login</h1>
+		  <p>Don't have an Account? <a>Sign Up</a></p>
+		</div>
+		<div class="common-form">
+    	<form #userLogin="ngForm">      	
+      		<p class="error-p"></p>      		
+				<div class="row mt-3">
+					<div class="col">
+						<label for="username" class="form-label">User Name</label>
+						<input type="username" class="form-control" name="username" ngModel minlength="2" maxlength="20" #username="ngModel" required />
+					</div>
+				</div>
+      		<p class="invalid-input">
+        			<span *ngIf="username.invalid && username.touched"
+          		>Please enter valid input</span>
+      		</p>
+
+				<div class="row mt-3">
+					<div class="col">
+						<label for="password" class="form-label">Password</label>
+						<input type="password" class="form-control" name="password" ngModel minlength="2" maxlength="20" #password="ngModel" required />
+					</div>
+				</div>
+				<p class="invalid-input">
+					<span *ngIf="password.invalid && password.touched"
+					>Please enter valid input</span>
+				</p>
+				<p><a>forgot your password?</a></p>
+      		
+				<button type="submit" value="Submit" class="btn btn-primary" [disabled]="userLogin.invalid">Login</button>
+    	</form>
+	</div>
+	</div>
+</div> -->

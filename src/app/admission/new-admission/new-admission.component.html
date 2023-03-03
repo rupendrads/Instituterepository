@@ -1,0 +1,72 @@
+<div class="container entry-form">
+    <div class="row">
+        <div class="col entry-form-col">
+            <div class="form-group row">
+                <div class="col-md-8 offset-md-4">
+                    <h2 class="page-title">New Admission</h2>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 field-label-div">
+                    <label class="col-form-label">Institute</label>
+                </div>
+                <div class="col-md-8 field-value-div">
+                    <select class="form-control form-control-sm" (change)="onChangeInstitute($event)">
+                        <option [value]="null" hidden>Select Institute</option>
+                        <option *ngFor="let institute of institutes" value={{institute.id}}> 
+                            {{institute.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 field-label-div">
+                    <label class="col-form-label">Course</label>
+                </div>
+                <div class="col-md-8 field-value-div">
+                    <select id="courseList" class="form-control form-control-sm" (change)="onChangeCourse($event)">
+                        <option [value]="null" hidden>Select Course</option>
+                        <option *ngFor="let course of courses" value={{course.id}}>
+                            {{course.name}}
+                        </option>            
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 field-label-div">
+                    <label class="col-form-label">Subjects Included</label>
+                </div>
+                <div class="col-md-8 field-value-div">
+                    <label class="field-value">
+                        <span *ngFor="let subject of selectedSubjects">{{subject.name}}, </span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 field-label-div">
+                    <label class="col-form-label">Course Duration</label>
+                </div>
+                <div class="col-md-8 field-value-div">
+                    <label class="field-value" *ngIf="selectedCourse?.duration!== null">
+                        {{selectedCourse?.duration}} months
+                    </label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4 field-label-div">
+                    <label class="col-form-label">Course Fee</label>
+                </div>
+                <div class="col-md-8 field-value-div">
+                    <label class="field-value" *ngIf="selectedCourse?.fee!==null">
+                        Rs. {{selectedCourse?.fee}}/-
+                    </label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-8 offset-md-4">
+                    <button class="btn btn-primary">Enroll</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
