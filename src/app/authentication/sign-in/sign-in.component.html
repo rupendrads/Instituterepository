@@ -1,11 +1,11 @@
 <div class="container entry-form">
     <div class="row">
         <div class="col entry-form-col sign-in-form">
-            <form #userLogin="ngForm">
+            <form #userLogin="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-group row">
                 <div class="col-md-12 title">
-                    <h1 class="page-title">User Login</h1>
-                    <span>Don't have an Account? <a>Sign Up</a></span>
+                    <h1 class="page-title">User Login</h1> 
+                    Don't have an Account? <a routerLink="/register" routerLinkActive="active" class="nav-link" style="padding:0;display: inline-block;">Sign Up</a>
                 </div>
             </div>
             <div class="form-group row">
@@ -29,7 +29,7 @@
                     <a>forgot your password?</a>
                 </div>
                 <div class="col-md-8 offset-md-4">
-                    <button type="submit" value="Submit" class="btn btn-primary" [disabled]="userLogin.invalid">Login</button>
+                    <button type="submit" value="Submit" class="btn btn-success" [disabled]="userLogin.invalid">Login</button>
                 </div>
             </div>
             </form>
