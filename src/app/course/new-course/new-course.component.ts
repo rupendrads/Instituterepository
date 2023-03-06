@@ -256,6 +256,7 @@ const courseSubjects: iCourseSubject[] = [
       
       id!: number;
       instituteId!: number;
+      
       courseName!: string;
       subjectsName!: string;
       courseDuration!: number;
