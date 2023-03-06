@@ -1,0 +1,20 @@
+
+<div class="form-group row">
+   <div class="col">
+		<!-- <new-course (courseAdded)="onCourseAdded($event)">
+      </new-course> -->
+	</div>
+      
+		<hr>
+		<ul class="list-group">
+		<a
+					class="list-group-item"
+					style="cursor: pointer"
+					*ngFor="let newcourse of newcourses"
+			>
+				{{ newcourse.courseName }} {{ newcourse.subjects }} {{ newcourse.duration }} {{ newcourse.fee }}
+		</a>
+		</ul>
+   
+</div>
+    
