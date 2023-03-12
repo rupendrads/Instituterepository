@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { FormGroup, NgForm, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
@@ -15,16 +16,24 @@ export class NewUserComponent implements OnInit {
     lastname!: string;
     username!: string;
     password!: string;
-    birthdate!: string;
+    birthdate!: Date;
     gender!: string;
-    phoneno!: number;
+    phoneno!: string;
     email!: string;
     address!: string;
+    usertype!: string;
+    userTypes: string[] = [];
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private router: Router) {
+      this.userTypes = ["Admin", "User"];
     }
 
     ngOnInit(): void {
+    }
+
+    onChangeUserType(event: any){
+      console.log(event.target.value);
+      this.usertype = event.target.value;
     }
 
     onSubmit() {
@@ -34,12 +43,12 @@ export class NewUserComponent implements OnInit {
         this.lastname = this.form.value.personDetails.lastname;
         this.username = this.form.value.personDetails.username;
         this.password = this.form.value.personDetails.password;
-        this.birthdate = this.form.value.personDetails.birthdate;
+        this.birthdate = new Date(this.form.value.personDetails.birthdate + "T00:00:00.000Z");
         this.gender = this.form.value.personDetails.gender;
         this.phoneno = this.form.value.personDetails.phoneno;
         this.email = this.form.value.personDetails.email;
         this.address = this.form.value.personDetails.address;   
-
+        
         this.userService.addUser(new User(
         this.firstname,
         this.lastname,
@@ -49,8 +58,16 @@ export class NewUserComponent implements OnInit {
         this.gender,
         this.phoneno,
         this.email,
-        this.address
-        ));
+        this.address,
+        this.usertype
+        )).subscribe({
+          next: (result) => {
+            console.log(result);
+            this.router.navigateByUrl('/signin');
+          },
+          error: (e) => console.error(e),
+          complete: () => console.info('complete') 
+      });
     }  
 }
 
