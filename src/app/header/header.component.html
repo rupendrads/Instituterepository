@@ -15,6 +15,9 @@
                   <a routerLink="/admission" routerLinkActive="active" class="nav-link">Admission Form</a>
                 </li>
                 <li class="nav-item" *ngIf="isUserLoggedIn==true">
+                  <a routerLink="/courses" routerLinkActive="active" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item" *ngIf="isUserLoggedIn==true">
                   <a [routerLink]="['/profile', loggedInUserId]" routerLinkActive="active" class="nav-link">Update Profile</a>
                 </li>
                 <li class="nav-item">
