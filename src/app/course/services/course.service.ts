@@ -27,14 +27,4 @@ export class CourseService {
   }
 }
 
-  // getCourseList():Observable<any>{
-  //   return of(courses);
-  // }
-
-  // getCourseById(courseId:number):Observable<any>{
-  //   return this.httpservice.get("data.ts"+courseId);
-  // }
-
-  // getSubjectById(subjectId:number):Observable<any>{
-  //   return this.httpservice.get("data.ts"+subjectId);
-  // }
+ 
