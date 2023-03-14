@@ -1,4 +1,5 @@
-import { iCourse, iCourseSubject, iSubject} from '../models/course.model'
+import { iCourse, iCourseSubject, iSubject } from '../models/course.model';
+
  
   export const courses: iCourse[] = [
     {

@@ -43,9 +43,7 @@ body {
   justify-content: center;  
 }
 
-.entry-form > div {
-  /* border: 1px solid green;   */
-}
+
 
 .entry-form > div >* {
     margin-top: 10px;    
