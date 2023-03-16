@@ -1,10 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, EventEmitter } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
-import { users } from "./data";
-
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +35,9 @@ export class UserService {
 
   getUser(userId: string){
     return this.http.get(`http://localhost:5032/api/Users/${userId}`);     
+  }
+
+  getUsers(){
+    return this.http.get("http://localhost:5032/api/Users");     
   }
 }

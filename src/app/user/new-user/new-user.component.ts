@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { FormGroup, NgForm, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { iInstitute } from 'src/app/institute/models/institute.model';
+import { institutes } from 'src/app/institute/services/data';
 
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
@@ -12,6 +14,7 @@ import { UserService } from '../services/user.service';
 })
 export class NewUserComponent implements OnInit {
     @ViewChild('myForm') form!: NgForm;
+    institueId!: string;
     firstname!: string;
     lastname!: string;
     username!: string;
@@ -21,24 +24,30 @@ export class NewUserComponent implements OnInit {
     phoneno!: string;
     email!: string;
     address!: string;
-    usertype!: string;
+    usertype: string = "User";
     userTypes: string[] = [];
+    institutes: iInstitute[] = [];
 
     constructor(private userService: UserService, private router: Router) {
       this.userTypes = ["Admin", "User"];
     }
 
     ngOnInit(): void {
+      this.institutes = [...institutes];
     }
 
-    onChangeUserType(event: any){
+    // onChangeUserType(event: any){
+    //   console.log(event.target.value);
+    //   this.usertype = event.target.value;
+    // }
+
+    onChangeInstitute(event:any){
       console.log(event.target.value);
-      this.usertype = event.target.value;
+      this.institueId = event.target.value;      
     }
 
     onSubmit() {
-        console.log(this.form);
-
+        console.log(this.form);        
         this.firstname = this.form.value.personDetails.firstname;
         this.lastname = this.form.value.personDetails.lastname;
         this.username = this.form.value.personDetails.username;
@@ -50,6 +59,7 @@ export class NewUserComponent implements OnInit {
         this.address = this.form.value.personDetails.address;   
         
         this.userService.addUser(new User(
+        this.institueId,
         this.firstname,
         this.lastname,
         this.username,

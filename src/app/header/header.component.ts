@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
   isUserLoggedIn:boolean = false;
   loggedInUserName:string|undefined = undefined;
   loggedInUserId:string|undefined = undefined;
+  loggedInUserType: string|undefined = undefined;
 
   constructor(private authService:AuthService){        
   }
@@ -17,8 +18,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(){
     this.authService.userLoggedInSubject.subscribe({
       next: (result: any) => {
+        console.log(result);
         this.isUserLoggedIn = result.isUserLoggedIn;
         this.loggedInUserId = result.isUserLoggedIn == true? result.loggedInUserId : undefined;
+        this.loggedInUserType = result.isUserLoggedIn  == true? result.loggedInUserType : undefined;
+        console.log(this.loggedInUserType);
       },
       error: (e)=> console.log(e),
       complete: () => console.log("complete")      
