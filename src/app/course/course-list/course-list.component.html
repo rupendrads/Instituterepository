@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container entry-form">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col entry-form-col">
       <div class="row">
         <div class="col-md-12">
           <button class="btn btn-success" (click)="onClickNewCourse()">
@@ -13,7 +13,6 @@
         <div class="col-md-12">
           <table class="s-table">
             <thead>
-              <th>Couese Id</th>
               <th>Course Name</th>
               <th>Subjects Name</th>
               <th>Duration</th>
@@ -22,12 +21,11 @@
             </thead>
             <tbody>
               <tr *ngFor="let course of courseList" >
-                <td>{{ course.id }}</td>
-                <td>{{ course.name }}</td>
-                <td><span *ngFor="let subject of selectedSubjects">{{subject.name}}, </span>></td>
+                <td>{{ course.courseName }}</td>
+                <td><span *ngFor="let subject of course.subjects">{{subject.subjectName}}, </span></td>
                 
-                <td>{{ course.duration }}</td>
-                <td>{{ course.fee }}</td>
+                <td>{{ course.courseDuration }} months</td>
+                <td>Rs. {{ course.courseFee }}</td>
                 <td>
                   <i class="fa-solid fa-pen-nib"></i>
                   <i class="fa-solid fa-trash"></i>

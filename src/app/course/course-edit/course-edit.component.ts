@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../services/course.service';
 
-import { iCourse, Course, iSubject, iCourseSubject }from '../models/course.model';
+import { iCourse, Course, iSubject }from '../models/course.model';
 import { iInstitute } from '../../institute/models/institute.model';
 import { institutes } from '../../institute/services/data';
-import { courses, subjects, courseSubjects } from '../services/data';
+//import { courses, subjects, courseSubjects } from '../services/data';
 
 @Component({
   selector: 'app-course-edit',

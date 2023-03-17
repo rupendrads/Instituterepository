@@ -26,8 +26,8 @@
                 <div class="col-md-8 field-value-div">
                     <select id="courseList" class="form-control form-control-sm" (change)="onChangeCourse($event)">
                         <option [value]="null" hidden>Select Course</option>
-                        <option *ngFor="let course of courses" value={{course.id}}>
-                            {{course.name}}
+                        <option *ngFor="let course of courses" value={{course.courseId}}>
+                            {{course.courseName}}
                         </option>            
                     </select>
                 </div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-md-8 field-value-div">
                     <label class="field-value">
-                        <span *ngFor="let subject of selectedSubjects">{{subject.name}}, </span>
+                        <span *ngFor="let subject of selectedSubjects">{{subject.subjectName}}, </span>
                     </label>
                 </div>
             </div>
@@ -47,8 +47,8 @@
                     <label class="col-form-label">Course Duration</label>
                 </div>
                 <div class="col-md-8 field-value-div">
-                    <label class="field-value" *ngIf="selectedCourse?.duration!== null">
-                        {{selectedCourse?.duration}} months
+                    <label class="field-value" *ngIf="selectedCourse?.courseDuration!== null">
+                        {{selectedCourse?.courseDuration}} months
                     </label>
                 </div>
             </div>
@@ -57,8 +57,8 @@
                     <label class="col-form-label">Course Fee</label>
                 </div>
                 <div class="col-md-8 field-value-div">
-                    <label class="field-value" *ngIf="selectedCourse?.fee!==null">
-                        Rs. {{selectedCourse?.fee}}/-
+                    <label class="field-value" *ngIf="selectedCourse?.courseFee!==null">
+                        Rs. {{selectedCourse?.courseFee}}/-
                     </label>
                 </div>
             </div>

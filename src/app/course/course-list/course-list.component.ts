@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { iCourse, Course, iSubject, iCourseSubject }from '../models/course.model';
-import { iInstitute } from '../../institute/models/institute.model';
-import { institutes } from '../../institute/services/data';
-import { courses, subjects, courseSubjects } from '../services/data';
+import { iCourse }from '../models/course.model';
 import { CourseService } from '../services/course.service';
-
 
 @Component({
   selector: 'app-course-list',
@@ -14,19 +9,19 @@ import { CourseService } from '../services/course.service';
   styleUrls: ['./course-list.component.css']
 })
 export class CourseListComponent implements OnInit {
-
   courseList!: iCourse[];
-  selectedSubjects: iSubject[] = [];
 
   constructor(private courseService: CourseService, private router: Router) { }
 
   ngOnInit(): void {
-
-    this.courseList = [...courses];
-    this.selectedSubjects = [...this.selectedSubjects];  
-    //console.log(this.courseList);
-    console.log(this.selectedSubjects);
-
+    this.courseService.getCourses().subscribe({
+      next: (result: any) => {
+          console.log(result);
+          this.courseList = result;          
+        },
+      error: (e) => console.log(e),
+      complete: () => console.log("Complete")
+    });
   }
   
   onClickNewCourse(){
