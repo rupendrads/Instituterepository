@@ -13,8 +13,8 @@
                 <div class="col-md-8 field-value-div">
                     <select class="form-control form-control-sm" (change)="onChangeInstitute($event)">
                         <option [value]="null" hidden>Select Institute</option>
-                        <option *ngFor="let institute of institutes" value={{institute.instituteId}}> 
-                            {{institute.instituteName}}
+                        <option *ngFor="let institute of institutes" value={{institute.id}}> 
+                            {{institute.name}}
                         </option>
                     </select>
                 </div>
@@ -47,7 +47,7 @@
                     <label class="col-form-label">Course Duration</label>
                 </div>
                 <div class="col-md-8 field-value-div">
-                    <label class="field-value" *ngIf="selectedCourse?.courseDuration== null">
+                    <label class="field-value" *ngIf="selectedCourse?.courseDuration!== null">
                         {{selectedCourse?.courseDuration}} months
                     </label>
                 </div>
@@ -62,11 +62,48 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="col-md-8 offset-md-4">
-                    <button class="btn btn-success">Enroll</button>
+            <div class="form-group row" style="margin-bottom: 0.5rem;">
+                <div class="col-md-4 field-label-div">
+                    <label class="col-form-label">Date of Admission</label>
+                </div>
+                <div class="col-md-8 field-value-div">
+                    <input type="date" class="form-control form-control-sm" id="datepicker" name="dateOfAdmission" [(ngModel)]="admission.dateOfAdmission" required>
                 </div>
             </div>
-        </div>
+            <div class="form-group row">
+                <div class="col-md-4 field-label-div">
+                    <label class="col-form-label">Referral if any</label>
+                </div>
+                <div class="col-md-8 field-value-div">                    
+                    <div class="form-check form-check-inline" >
+                        <input class="form-check-input" type="radio" name="anyReferral" id="no" value="N" [checked]="true" (change)="onIsRefChange($event)">
+                        <label class="form-label" for="no">
+                        No
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline" >
+                        <input class="form-check-input" type="radio" name="anyReferral" id="yes" value="Y" (change)="onIsRefChange($event)">
+                        <label class="form-label" for="yes">
+                        Yes
+                        </label>
+                    </div>                    
+                </div>
+            </div>
+            <div class="form-group row" *ngIf="anyReferral">
+                <div class="col-md-8 offset-md-4 field-value-div">                    
+                    <select id="userList" class="form-control form-control-sm" (change)="onChangeReferral($event)">
+                        <option [value]="null" hidden>No Referral</option>
+                        <option *ngFor="let user of refUsers" value={{user.id}}>
+                            {{user.firstName}} {{user.lastName}}
+                        </option>            
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-8 offset-md-4">
+                    <button class="btn btn-success" (click)="onClickEnroll()">Enroll</button>
+                </div>
+            </div>
+        </div>        
     </div>
 </div>

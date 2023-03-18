@@ -12,7 +12,6 @@ import { CourseComponent } from './course/course.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
-import { CourseService } from './course/services/course.service';
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 import { CourseListComponent } from './course/course-list/course-list.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';

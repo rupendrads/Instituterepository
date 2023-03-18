@@ -14,7 +14,7 @@
                 <li class="nav-item" *ngIf="isUserLoggedIn==true">
                   <a routerLink="/admission" routerLinkActive="active" class="nav-link">Admission Form</a>
                 </li>
-                <li class="nav-item" *ngIf="isUserLoggedIn==true">
+                <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
                   <a routerLink="/courses" routerLinkActive="active" class="nav-link">Courses</a>
                 </li>
                 <li class="nav-item" *ngIf="isUserLoggedIn==true">

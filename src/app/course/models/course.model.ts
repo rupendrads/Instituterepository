@@ -1,47 +1,33 @@
 export interface iCourse {
-    courseId: number,
-    courseName: string,
-    instituteId: number,
-    courseDuration: number,
-    courseFee: number
-  }
+  courseId: number,
+  courseName: string,
+  instituteId: number,
+  courseDuration: number,
+  courseFee: number,
+  subjects: iSubject[]
+}
 
 export interface iSubject {
-    subjectId: number,
-    subjectName: string,
-  }
-  
-export interface iCourseSubject {
-   courseId: number,
-   subjectId: number 
-  }   
-  
+  subjectId: number,
+  subjectName: string,
+}
+    
 export class Course implements iCourse {
-    public courseId: number;
-    public instituteId!: number;
-    public courseName: string;
-    public Ssubjects:string[];
-    public courseDuration: number;
-    public courseFee: number;
+  public courseId: number = -1;
+  public courseName: string;
+  public instituteId: number;
+  public courseDuration: number;
+  public courseFee: number;
+  public subjects: iSubject[] = [];
 
-    constructor(courseId: number, courseName: string, Ssubjects: string[], courseDuration: number, courseFee: number,) {
-        this.courseId = courseId;
+    constructor(courseName: string, instituteId: number, courseDuration: number, courseFee: number, subjects: iSubject[]) {
         this.courseName = courseName;
-        this.Ssubjects = Ssubjects;
+        this.instituteId = instituteId;
         this.courseDuration = courseDuration;
         this.courseFee = courseFee;
+        this.subjects = [...subjects];
     }
-
 }
 
-export class iSubject {
-  public subjectId: number;
-  public subjectName: string;
-  
-  constructor(subjectId: number, subjectName: string) {
-      this.subjectId = subjectId;
-      this.subjectName = subjectName;
-   }
-}
         
 

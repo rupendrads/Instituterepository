@@ -2,9 +2,7 @@ import { Component, Input, OnInit, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { DatePipe } from '@angular/common';
-import { User } from "../models/user.model";
 import { UserService } from "../services/user.service";
-import { first } from "rxjs";
 
 @Component({
     selector: 'edit-user',

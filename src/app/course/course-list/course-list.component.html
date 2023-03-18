@@ -1,8 +1,6 @@
-<div class="container">
-  <form #Form="ngForm">
+<div class="container entry-form">
   <div class="row">
-    <div class="col-md-12">
-
+    <div class="col entry-form-col">
       <div class="row">
         <div class="col-md-12">
           <button class="btn btn-success" (click)="onClickNewCourse()">
@@ -10,36 +8,33 @@
           </button>
         </div>
       </div>
+
       <div class="row">
         <div class="col-md-12">
           <table class="s-table">
             <thead>
-              <th>Course Id</th>
               <th>Course Name</th>
               <th>Subjects Name</th>
               <th>Duration</th>
               <th>Fee</th>
-              <th>Options</th>
+              <th>options</th>
             </thead>
             <tbody>
-              <tr *ngFor="let course of courses; let i = index">
-                <td>{{ course.courseId }}</td>
+              <tr *ngFor="let course of courseList" >
                 <td>{{ course.courseName }}</td>
-                <td><span *ngFor="let subject of subjectsBind(course.courseId)">{{subject }},</span></td>
-                <td>{{ course.courseDuration }}</td>
-                <td>{{ course.courseFee }}</td>
+                <td><span *ngFor="let subject of course.subjects">{{subject.subjectName}}, </span></td>
+                
+                <td>{{ course.courseDuration }} months</td>
+                <td>Rs. {{ course.courseFee }}</td>
                 <td>
-                  <a [routerLink]="['/editcourse', course.courseId]"><i class="fa-solid fa-pen-nib"></i></a>
-                  
-                  <a><i class="fa-solid fa-trash" (click)="onDeleteCourse(course.courseId)"></i></a>
+                  <i class="fa-solid fa-pen-nib"></i>
+                  <i class="fa-solid fa-trash"></i>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-
     </div>
   </div>
-</form>
 </div> 

@@ -1,7 +1,8 @@
 export class User {
-    
-    public firstname: string = '';
-    public lastname: string = '';
+    public id: number|undefined = undefined;
+    public instituteId: string = '';
+    public firstName: string = '';
+    public lastName: string = '';
     public username: string = '';
     public password: string = '';
     public birthdate: Date = new Date();
@@ -11,10 +12,10 @@ export class User {
     public address: string = '';
     public usertype: string = '';
     
-    constructor(fname: string, lname: string, uname: string, pword: string, birthdt: Date, gen: string, phone: string, email: string, add: string, type: string) {
-       
-        this.firstname = fname;
-        this.lastname = lname;
+    constructor(instituteId: string, fname: string, lname: string, uname: string, pword: string, birthdt: Date, gen: string, phone: string, email: string, add: string, type: string) {
+        this.instituteId = instituteId;
+        this.firstName = fname;
+        this.lastName = lname;
         this.username = uname;
         this.password = pword;
         this.birthdate = birthdt;
