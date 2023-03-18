@@ -1,4 +1,4 @@
 export interface iInstitute {
-    instituteId: number,
-    instituteName: string
-  }
+  id: number,
+  name: string
+}

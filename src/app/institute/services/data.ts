@@ -2,15 +2,15 @@ import { iInstitute } from '../models/institute.model'
 
 export const institutes:iInstitute[] = [
     {
-      instituteId: 1,
-      instituteName: 'Vidyasagar Institute' 
+      id: 1,
+      name: 'Vidyasagar Institute' 
     },
     {
-      instituteId: 2,
-      instituteName: 'Ceat Training' 
+      id: 2,
+      name: 'Ceat Training' 
     },
     {
-      instituteId: 3,
-      instituteName: 'Keerti Institute' 
+      id: 3,
+      name: 'Keerti Institute' 
     }
   ]
