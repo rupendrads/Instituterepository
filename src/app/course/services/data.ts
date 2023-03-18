@@ -3,120 +3,120 @@ import { iCourse, iCourseSubject, iSubject } from '../models/course.model';
  
   export const courses: iCourse[] = [
     {
-      id: 1,
-      name: 'MS-CIT',
+      courseId: 1,
+      courseName: 'MS-CIT',
       instituteId: 1,
-      duration: 6,
-      fee: 7000
+      courseDuration: 6,
+      courseFee: 7000
     },
     {
-      id: 2,
-      name: 'Programming with .Net',
+      courseId: 2,
+      courseName: 'Programming with .Net',
       instituteId: 1,
-      duration: 12,
-      fee: 10000
+      courseDuration: 12,
+      courseFee: 10000
     },
     {
-      id: 3,
-      name: 'Web Designing',
+      courseId: 3,
+      courseName: 'Web Designing',
       instituteId: 1,
-      duration: 6,
-      fee: 8000
+      courseDuration: 6,
+      courseFee: 8000
     },
     {
-      id: 4,
-      name: 'MS Office',
+      courseId: 4,
+      courseName: 'MS Office',
       instituteId: 2,
-      duration: 3,
-      fee: 4500
+      courseDuration: 3,
+      courseFee: 4500
     },
     {
-      id: 5,
-      name: 'Programming Python',
+      courseId: 5,
+      courseName: 'Programming Python',
       instituteId: 2,
-      duration: 6,
-      fee: 12000
+      courseDuration: 6,
+      courseFee: 12000
     },
     {
-      id: 6,
-      name: 'DB',
+      courseId: 6,
+      courseName: 'DB',
       instituteId: 3,
-      duration: 9,
-      fee: 9500
+      courseDuration: 9,
+      courseFee: 9500
     },
     {
-      id: 7,
-      name: 'Advanced Programming',
+      courseId: 7,
+      courseName: 'Advanced Programming',
       instituteId: 3,
-      duration: 15,
-      fee: 15000
+      courseDuration: 15,
+      courseFee: 15000
     }
   ]
   
   export const subjects:iSubject[] = [
     {
-      id: 1,
-      name: "C"
+      subjectId: 1,
+      subjectName: "C"
     },
     {
-      id: 2,
-      name: "C++"
+      subjectId: 2,
+      subjectName: "C++"
     },
     {
-      id: 3,
-      name: "C#"
+      subjectId: 3,
+      subjectName: "C#"
     },
     {
-      id: 4,
-      name: "Visual C++"
+      subjectId: 4,
+      subjectName: "Visual C++"
     },
     {
-      id: 5,
-      name: "MS Word"
+      subjectId: 5,
+      subjectName: "MS Word"
     },
     {
-      id: 6,
-      name: "MS Excel"
+      subjectId: 6,
+      subjectName: "MS Excel"
     },
     {
-      id: 7,
-      name: "MS PowerPoint"
+      subjectId: 7,
+      subjectName: "MS PowerPoint"
     },
     {
-      id: 8,
-      name: "Coreldraw"
+      subjectId: 8,
+      subjectName: "Coreldraw"
     },
     {
-      id: 9,
-      name: "Photoshop"
+      subjectId: 9,
+      subjectName: "Photoshop"
     },
     {
-      id: 10,
-      name: "Python"
+      subjectId: 10,
+      subjectName: "Python"
     },
     {
-      id: 11,
-      name: "Django"
+      subjectId: 11,
+      subjectName: "Django"
     },
     {
-      id: 12,
-      name: "Object Oriented Programming"
+      subjectId: 12,
+      subjectName: "Object Oriented Programming"
     },
     {
-      id: 13,
-      name: "SOLID Principle"
+      subjectId: 13,
+      subjectName: "SOLID Principle"
     },
     {
-      id: 14,
-      name: "Extreme Programming"
+      subjectId: 14,
+      subjectName: "Extreme Programming"
     },
     {
-      id: 15,
-      name: "Design Framework"
+      subjectId: 15,
+      subjectName: "Design Framework"
     },
     {
-      id: 16,
-      name: "Sql Server"
+      subjectId: 16,
+      subjectName: "Sql Server"
     }
   ]
   

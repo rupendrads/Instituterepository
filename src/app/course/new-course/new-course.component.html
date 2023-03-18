@@ -16,8 +16,8 @@
 						<div class="col-md-8 field-value-div">
 							<select class="form-control form-control-sm" #institutename (change)="onSelected()">
 								<option [value]="null" hidden>Select Institute</option>
-								<option *ngFor="let institute of institutes" value={{institute.id}} [ngValue]="institute"> 
-									{{institute.name}}
+								<option *ngFor="let institute of institutes" value={{institute.instituteId}} [ngValue]="institute"> 
+									{{institute.instituteName}}
 								</option>
 							</select>
 						</div>
@@ -42,8 +42,8 @@
 								<div class="col-course-div">
 									<select class="form-control form-control-sm" (change)="onChangeSubject($event)">
 										<option [value]="null" hidden>Select Subjects</option>
-											<option name="subjectsname" ngModel required #subjectsname="ngModel" [(ngModel)] = "course.subjectsname" *ngFor="let subject of subjects" value={{subject.id}} [ngValue]="subject">
-												{{subject.name}}
+											<option name="subjectsname" ngModel required #subjectsname="ngModel"  *ngFor="let subject of subjects" value={{subject.subjectName}} [ngValue]="subject">
+												{{subject.subjectName}}
 										</option>
 									</select>
 								</div>
@@ -61,7 +61,7 @@
 											<div class="scrollit">
 												<tbody>									  
 												<tr *ngFor="let subject of selectedSubjects">
-													<td style="width: 200px; padding-top: 0px;"> {{ subject.name }}</td>
+													<td style="width: 200px; padding-top: 0px;"> {{ subject.subjectName }}</td>
 													<td><i class="fa-solid fa-trash" (click)="onDelete()"></i></td>
 												</tr>							  
 												</tbody>

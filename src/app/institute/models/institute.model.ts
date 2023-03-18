@@ -1,4 +1,4 @@
 export interface iInstitute {
-    id: number,
-    name: string
+    instituteId: number,
+    instituteName: string
   }

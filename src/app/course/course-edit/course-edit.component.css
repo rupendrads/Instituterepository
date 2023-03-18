@@ -1,0 +1,71 @@
+body {
+    line-height: 1;
+    box-sizing: border-box;
+  }
+  
+  table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 60%;
+    margin-top: 12px;
+    border-radius: 2px;
+  }
+
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: row;
+    padding: 3px;
+    height: 30px;
+   
+  }
+
+  table td {
+    padding: 3px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    
+  }
+
+  .col-course-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col {
+    display: flex;
+    justify-content:end;
+    flex-direction: column;
+  }
+
+  .row-course {
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+  }
+
+  .row-table {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-table {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .btn {
+    margin-left: 10px;
+    margin-top: 0px;
+  }
+
+  .fa-solid {
+    color: red;
+  }
+
+  .scrollit {
+    overflow:scroll;
+    height:120px;
+}

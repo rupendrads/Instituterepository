@@ -7,6 +7,7 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { NewUserComponent } from './user/new-user/new-user.component';
 import { NewCourseComponent } from './course/new-course/new-course.component';
 import { CourseListComponent } from './course/course-list/course-list.component';
+import { CourseEditComponent } from './course/course-edit/course-edit.component';
 
 const routes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: 'register', component: NewUserComponent},
     { path: 'newcourse', component: NewCourseComponent},
     { path: 'courses', component: CourseListComponent},
+    { path: 'editcourse/:id', component: CourseEditComponent},
     { path: 'profile/:id', component: EditUserComponent },
     {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];

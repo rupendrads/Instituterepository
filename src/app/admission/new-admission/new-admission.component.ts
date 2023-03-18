@@ -21,16 +21,12 @@ import { courses, subjects, courseSubjects } from '../../course/services/data';
         this.institutes = [...institutes];
         this.subjects = [...subjects];      
         this.courseSubjects = [...courseSubjects];  
-        console.log(this.institutes);
-        console.log(this.subjects);
-        console.log(this.courseSubjects);
-      }
+    }
 
       onChangeInstitute(event:any){
         console.log(event.target.value);
         const selectedInstitueId = event.target.value;
         this.courses = courses.filter(c => c.instituteId == selectedInstitueId);
-        console.log(this.courses);
         this.selectedCourse = undefined;
         this.selectedSubjects = [];
       }
@@ -38,17 +34,15 @@ import { courses, subjects, courseSubjects } from '../../course/services/data';
       onChangeCourse(event:any){
         console.log(event.target.value);
         const selectedCourseId = event.target.value;        
-        this.selectedCourse = this.courses.find(c => c.id == selectedCourseId);
+        this.selectedCourse = this.courses.find(c => c.courseId == selectedCourseId);
         const selectedSubjectIds = this.courseSubjects.filter(cs => cs.courseId == selectedCourseId);
-        console.log(selectedSubjectIds);
 
         this.selectedSubjects = [];
         selectedSubjectIds.forEach(element => {
-          const subject = this.subjects.find(s => s.id == element.subjectId);
+          const subject = this.subjects.find(s => s.subjectId == element.subjectId);
           if(subject !== undefined){
             this.selectedSubjects?.push(subject);
           }
         });
-        console.log(this.selectedSubjects);
       }
   }
