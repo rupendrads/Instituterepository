@@ -1,15 +1,12 @@
 import { OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 import { Course, iSubject } from '../../course/models/course.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CourseService implements OnInit{
-
-  subjects: iSubject[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -30,9 +27,7 @@ export class CourseService implements OnInit{
   }
 
   deleteCourse(courseId: number){
-    return this.http.delete(`http://localhost:5032/api/Course/${courseId}`);  
-    // let index = this.courseList.indexOf(this.selectedCourse);
-    // this.courseList.splice(index, 1);   
+    return this.http.delete(`http://localhost:5032/api/Course/${courseId}`);     
   }
   
   updateCourse(
@@ -52,19 +47,3 @@ export class CourseService implements OnInit{
     });
   }
 }
-
-// old method-addCourse
-// addCourse(course: Course) {
-//   return this.http.post("http://localhost:5032/api/Course", course);
-//   course.id = courses.length + 1;
-//   subjectArray.forEach((subjectName) => {
-//     const subjectId = subjects.length + 1;
-//     const subject: iSubject = {
-//       id: subjectId,
-//       name: subjectName,
-//     };
-//     subjects.push(subject);
-//     courseSubjects.push({ courseId: course.id, subjectId: subjectId });
-//   });
-//   console.log(courses);
-// }
