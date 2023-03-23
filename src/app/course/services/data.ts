@@ -2,6 +2,10 @@ import { iSubject } from '../models/course.model';
  
   export const subjects:iSubject[] = [
     {
+      subjectId: 1,
+      subjectName: "SubjectName"
+    },
+    {
       subjectId: 2,
       subjectName: "Basics"
     },
@@ -23,11 +27,7 @@ import { iSubject } from '../models/course.model';
     },
     {
       subjectId: 7,
-      subjectName: "C Basics Coding"
-    },
-    {
-      subjectId: 8,
-      subjectName: "C Advanced Coding"
+      subjectName: "SQl Server"
     },
     {
       subjectId: 8,

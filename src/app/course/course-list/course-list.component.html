@@ -1,34 +1,33 @@
-<div class="container entry-form">
-  <div class="row">
-    <div class="col entry-form-col">
+<div class="container">
+  <div class="row-main">
+    <div class="col-main">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col">
           <button class="btn btn-success" (click)="onClickNewCourse()">
             Add
           </button>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <table class="s-table">
+      <div class="row-table">
+        <div class="col-table">
+          <table class="table">
             <thead>
               <th>Course Name</th>
               <th>Subjects Name</th>
               <th>Duration</th>
               <th>Fee</th>
-              <th>options</th>
+              <th>Options</th>
             </thead>
             <tbody>
-              <tr *ngFor="let course of courseList" >
+              <tr *ngFor="let course of courseList; let i = index"  >
                 <td>{{ course.courseName }}</td>
                 <td><span *ngFor="let subject of course.subjects">{{subject.subjectName}}, </span></td>
                 
                 <td>{{ course.courseDuration }} months</td>
                 <td>Rs. {{ course.courseFee }}</td>
                 <td>
-                  <i class="fa-solid fa-pen-nib"></i>
-                  <i class="fa-solid fa-trash"></i>
+                  <a [routerLink]="['/editcourse/', course.courseId]" class="nav-link"><i class="fa-solid fa-pen-nib"></i></a>
+                  <a (click)="deleteCourse(course.courseId)"><i class="fa-solid fa-trash"></i></a>                 
                 </td>
               </tr>
             </tbody>

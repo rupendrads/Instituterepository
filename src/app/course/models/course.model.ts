@@ -13,14 +13,15 @@ export interface iSubject {
 }
     
 export class Course implements iCourse {
-  public courseId: number = -1;
+  public courseId: number = 0;
   public courseName: string;
   public instituteId: number;
   public courseDuration: number;
   public courseFee: number;
   public subjects: iSubject[] = [];
 
-    constructor(courseName: string, instituteId: number, courseDuration: number, courseFee: number, subjects: iSubject[]) {
+    constructor(courseId: number, courseName: string, instituteId: number, courseDuration: number, courseFee: number, subjects: iSubject[]) {
+        this.courseId = courseId;
         this.courseName = courseName;
         this.instituteId = instituteId;
         this.courseDuration = courseDuration;
