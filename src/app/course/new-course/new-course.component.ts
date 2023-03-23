@@ -22,9 +22,13 @@ import { subjects } from '../services/data';
     subjects: iSubject[] = [];    
     selectedSubject: iSubject|any;
     selectedSubjects: iSubject[] = [];
+
+    royaltyTypes: string[] = [];
+    royaltyType:string|undefined = undefined;
           
     constructor(private courseService: CourseService, private route: ActivatedRoute,
-      private router:Router) {        
+      private router:Router) {       
+        this.royaltyTypes = ["Percentage", "Amount"];
     }
     
     ngOnInit(){
@@ -58,6 +62,8 @@ import { subjects } from '../services/data';
         +this.selectedInstitute,
         this.form.value.courseduration,
         this.form.value.coursefee,
+        this.royaltyType,
+        this.form.value.royaltyvalue,
         this.selectedSubjects
       );
       console.log(course);
@@ -71,6 +77,11 @@ import { subjects } from '../services/data';
         complete: () => console.info('complete') 
       });
     }  
+
+    onChangeRoyaltyType(event: any){
+      console.log(event.target.value);
+      this.royaltyType = event.target.value;
+    }
 }
 
 
