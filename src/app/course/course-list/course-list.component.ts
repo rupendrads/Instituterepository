@@ -6,7 +6,7 @@ import { iCourse }from '../models/course.model';
 import { CourseService } from '../services/course.service';
 
 @Component({
-  selector: 'app-course-list',
+  selector: 'courses',
   templateUrl: './course-list.component.html',
   styleUrls: ['./course-list.component.css']
 })
@@ -19,7 +19,7 @@ export class CourseListComponent implements OnInit {
   constructor(private courseService: CourseService, private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
-      this.getCourseList();
+    this.getCourseList();
   }
     
   onClickNewCourse(){

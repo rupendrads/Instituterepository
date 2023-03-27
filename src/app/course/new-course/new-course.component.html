@@ -1,125 +1,115 @@
-            
 <div class="container entry-form">
 	<div class="row">
 	   <div class="col entry-form-col">			
-			 <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-				 <div>
-					 <div class="form-group row">
-						 <div class="col-md-8 offset-md-4">
-							 <h2 class="page-title">New Course</h2>
-						 </div>
-					 </div>
-					 <div class="form-group row">
-						 <div class="col-md-4 field-label-div">
-							 <label class="col-form-label">Institute</label>
-						 </div>
-						 <div class="col-md-8 field-value-div">
-							 <select class="form-control form-control-sm" (change)="onInstituteChanged($event)">
-								 <option [value]="null" hidden>Select Institute</option>
-								 <option *ngFor="let institute of institutes" value={{institute.id}} > 
-									 {{institute.name}}
-								 </option>
-							 </select>
-						 </div>
-					 </div>
- 
-					 <div class="form-group row">
-						 <div class="col-md-4 field-label-div">
-							 <label class="col-form-label">Course</label>
-						 </div>
-						 <div class="col-md-8 field-value-div">
-							 <input type="text" class="form-control form-control-sm" placeholder="Enter Course Name" name="coursename" ngModel required #coursename="ngModel" >
-						 </div>
-					 </div>
- 
-					 <div class="form-group row">
-						 <div class="col-md-4 field-label-div">
-							 <label class="col-form-label">Subjects Included</label>
-						 </div>
-						 
-						 <div class="col">
-							 <div class="row-course">
-								 <div class="col-course-div">
-									 <select class="form-control form-control-sm" (change)="onChangeSubject($event)">
-										 <option [value]="null" hidden>Select Subjects</option>
-											 <option name="subjectsname" *ngFor="let subject of subjects" value={{subject.subjectId}}>
-												 {{subject.subjectName}}
-										 </option>
-									 </select>
-								 </div>
-								 <div  class="col-course-div">
-									 <button type="button" class="btn btn-success" (click)="onAddSubject()">
-										 Add
-									 </button>
-								 </div>
-							 </div>
- 
- 
-							 <div class="row-table">
-								 <div class="col-table">
-										 <table style="border-radius: 1px;">
-											 <div class="scrollit">
-												 <tbody>									  
-												 <tr *ngFor="let subject of selectedSubjects">
-													 <td style="width: 200px; padding-top: 0px;"> {{ subject.subjectName }}</td>
-													 <td><i class="fa-solid fa-trash" (click)="onDeleteSubject()"></i></td>
-												 </tr>							  
-												 </tbody>
-											 </div>
-										 </table>
-									 </div>
-								 </div>
-							 </div>
-						 </div>
-					 </div>
- 
- 
- 
-					 <div class="form-group row">
-						 <div class="col-md-4 field-label-div">
-							 <label class="col-form-label">Course Duration</label>
-						 </div>
-						 <div class="col-md-6 field-value-div">
-							 <input type="text" class="form-control form-control-sm" name="courseduration" ngModel required #courseduration="ngModel" > <span style="padding-left: 10px; padding-right: 10px;">months</span>
-						 </div> 
-					 </div>
-					 <div class="form-group row">
-						 <div class="col-md-4 field-label-div">
-							 <label class="col-form-label">Course Fee</label>
-						 </div>
-						 <div class="col-md-5 field-value-div">							
-							 <input type="text" class="form-control form-control-sm" name="coursefee" ngModel required #coursefee="ngModel" >
-							 <span style="padding-left: 10px; padding-right: 10px;"> Rs </span>
-						 </div>
-					 </div>
-					 <div class="form-group row">
-                      <div class="col-md-4 field-label-div">
-                          <label class="col-form-label">Royalty Type</label>
-                      </div>
-                      <div class="col-md-8 field-value-div">
-                          <select class="form-control form-control-sm" (change)="onChangeRoyaltyType($event)">
-                              <option [value]="null" hidden>Select Royalty Type</option>
-                              <option *ngFor="let royaltyType of royaltyTypes" value={{royaltyType}}> 
-                                  {{royaltyType}}
-                              </option>
-                          </select>
-                      </div>
-                     </div>
-					 <div class="form-group row">
+			<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+				<div>
+					<div class="form-group row">
+						<div class="col-md-8 offset-md-4">
+							<h2 class="page-title">New Course</h2>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-4 field-label-div">
+							<label class="col-form-label">Institute</label>
+						</div>
+						<div class="col-md-8 field-value-div">
+							<select class="form-control form-control-sm" (change)="onInstituteChanged($event)">
+								<option [value]="null" hidden>Select Institute</option>
+								<option *ngFor="let institute of institutes" value={{institute.id}} > 
+									{{institute.name}}
+								</option>
+							</select>
+						</div>
+					</div>
+ 					<div class="form-group row">
+						<div class="col-md-4 field-label-div">
+							<label class="col-form-label">Course</label>
+						</div>
+						<div class="col-md-8 field-value-div">
+							<input type="text" class="form-control form-control-sm" placeholder="Enter Course Name" name="coursename" ngModel required #coursename="ngModel" >
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-4 field-label-div">
+							<label class="col-form-label">Subjects Included</label>
+						</div>
+						<div class="col">
+							<div class="row-course">
+								<div class="col-course-div">
+									<select class="form-control form-control-sm" (change)="onChangeSubject($event)">
+										<option [value]="null" hidden>Select Subjects</option>
+											<option name="subjectsname" *ngFor="let subject of subjects" value={{subject.subjectId}}>
+												{{subject.subjectName}}
+										</option>
+									</select>
+								</div>
+								<div  class="col-course-div">
+									<button type="button" class="btn btn-success" (click)="onAddSubject()">
+										Add
+									</button>
+								</div>
+							</div>
+							<div class="row-table">
+								<div class="col-table">
+										<table style="border-radius: 1px;">
+											<div class="scrollit">
+												<tbody>									  
+												<tr *ngFor="let subject of selectedSubjects">
+													<td style="width: 200px; padding-top: 0px;"> {{ subject.subjectName }}</td>
+													<td><i class="fa-solid fa-trash" (click)="onDeleteSubject()"></i></td>
+												</tr>							  
+												</tbody>
+											</div>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-4 field-label-div">
+							<label class="col-form-label">Course Duration</label>
+						</div>
+						<div class="col-md-6 field-value-div">
+							<input type="text" class="form-control form-control-sm" name="courseduration" ngModel required #courseduration="ngModel" > <span style="padding-left: 10px; padding-right: 10px;">months</span>
+						</div> 
+					</div>
+					<div class="form-group row">
+						<div class="col-md-4 field-label-div">
+							<label class="col-form-label">Course Fee (Rs)</label>
+						</div>
+						<div class="col-md-5 field-value-div">							
+							<input type="text" class="form-control form-control-sm" name="coursefee" ngModel required #coursefee="ngModel" >
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-4 field-label-div">
+							<label class="col-form-label">Royalty Type</label>
+						</div>
+						<div class="col-md-8 field-value-div">
+							<select class="form-control form-control-sm" (change)="onChangeRoyaltyType($event)">
+								<option [value]="null" hidden>Select Royalty Type</option>
+								<option *ngFor="let royaltyType of royaltyTypes" value={{royaltyType}}> 
+										{{royaltyType}}
+								</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
 						<div class="col-md-4 field-label-div">
 							<label class="col-form-label">Royalty Value</label>
 						</div>
 						<div class="col-md-5 field-value-div">							
-							<input type="text" class="form-control form-control-sm" name="royaltyvalue" ngModel required #royaltyvalue="ngModel" >
+							<input type="text" class="form-control form-control-sm" name="royaltyvalue" ngModel required #royaltyvalue="ngModel">
 						</div>
 					</div>
-					 <div class="form-group row">
-						 <div class="col-md-8 offset-md-4">
-							 <button class="btn btn-primary" type="submit" value="Submit" >Submit</button>
-					 </div>
-				 </div>
-			 </form>
+					<div class="form-group row">
+						<div class="col-md-8 offset-md-4">
+							<button class="btn btn-primary" type="submit" value="Submit" >Submit</button>
+					</div>
+				</div>
+			</form>
 	   </div>
 	</div>
- </div>
+</div>
  

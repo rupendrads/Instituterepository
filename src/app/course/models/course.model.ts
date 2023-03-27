@@ -4,6 +4,8 @@ export interface iCourse {
   instituteId: number,
   courseDuration: number,
   courseFee: number,
+  royaltyType: string|undefined,
+  royaltyValue: number,
   subjects: iSubject[]
 }
 
@@ -12,7 +14,7 @@ export interface iSubject {
   subjectName: string,
 }
     
-export class Course implements iCourse {
+export class Course  {
   public courseId: number = 0;
   public courseName: string;
   public instituteId: number;
@@ -22,12 +24,15 @@ export class Course implements iCourse {
   public royaltyValue: number;
   public subjects: iSubject[] = [];
 
-    constructor(courseId: number, courseName: string, 
+    constructor(
+      courseId: number, 
+      courseName: string, 
       instituteId: number, 
       courseDuration: number, 
       courseFee: number, 
       royaltyType: string|undefined,
-      royaltyValue: number, subjects: iSubject[]) {
+      royaltyValue: number, 
+      subjects: iSubject[]) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.instituteId = instituteId;
@@ -37,7 +42,7 @@ export class Course implements iCourse {
         this.royaltyValue = royaltyValue;
         this.subjects = [...subjects];
     }
-}
+ }
 
         
 
