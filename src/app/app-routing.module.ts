@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Routes, RouterModule } from '@angular/router'; 
 import { NewAdmission } from './admission/new-admission/new-admission.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
@@ -28,7 +29,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    NgbModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

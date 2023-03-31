@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NewAdmission } from './admission/new-admission/new-admission.component';
@@ -42,6 +43,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     ConfirmationDialogComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
