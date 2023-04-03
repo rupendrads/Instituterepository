@@ -1,39 +1,38 @@
 <div class="container">
-  <div class="row-main">
-    <div class="col-main">
-      <div class="row">
-        <div class="col">
-          <button class="btn btn-success" (click)="onClickNewCourse()">
-            Add
-          </button>
-        </div>
-      </div>
-      <div class="row-table">
-        <div class="col-table">
-          <table class="table">
-            <thead>
-              <th>Course Name</th>
-              <th>Subjects Name</th>
-              <th>Duration</th>
-              <th>Fee</th>
-              <th>Options</th>
-            </thead>
-            <tbody>
-              <tr *ngFor="let course of courseList; let i = index"  >
-                <td>{{ course.courseName }}</td>
-                <td><span *ngFor="let subject of course.subjects">{{subject.subjectName}}, </span></td>
-                
-                <td>{{ course.courseDuration }} months</td>
-                <td>Rs. {{ course.courseFee }}</td>
-                <td>
-                  <a [routerLink]="['/editcourse/', course.courseId]" class="nav-link"><i class="fa-solid fa-pen-nib"></i></a>
-                  <a (click)="deleteCourse(course.courseId)"><i class="fa-solid fa-trash"></i></a>                 
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
+  	<div class="row-main">
+    	<div class="col-main">
+			<div class="row">
+				<div class="col">
+					<button class="btn btn-success" (click)="onClickNewCourse()">
+						Add
+					</button>
+				</div>
+			</div>
+			<div class="row-table">
+				<div class="col-table">
+					<table class="table">
+						<thead>
+							<th>Course Name</th>
+							<th>Subjects Name</th>
+							<th>Duration</th>
+							<th>Fee</th>
+							<th>Options</th>
+						</thead>
+						<tbody>
+							<tr *ngFor="let course of courseList; let i = index"  >
+								<td>{{ course.courseName }}</td>
+								<td><span *ngFor="let subject of course.subjects">{{ subject.subjectName }}, </span></td>
+								<td>{{ course.courseDuration }} months</td>
+								<td>Rs. {{ course.courseFee }}</td>
+								<td>
+									<a [routerLink]="['/editcourse/', course.courseId]" class="nav-link"><i class="fa-solid fa-pen-nib"></i></a>
+									<a (click)="deleteCourse(course.courseId)"><i class="fa-solid fa-trash"></i></a>                 
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+      	</div>
+    	</div>
+  	</div>
 </div> 

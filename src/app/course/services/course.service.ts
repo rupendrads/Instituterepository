@@ -36,6 +36,9 @@ export class CourseService implements OnInit{
     instituteId: number,
     courseDuration: number,
     courseFee: number,
+    royaltyType: string,
+    royaltyValue: number,
+    
     subjects: iSubject[]) {
     return this.http.put(`http://localhost:5032/api/Course/${courseId}`, {
       CourseId: courseId,
@@ -43,6 +46,8 @@ export class CourseService implements OnInit{
       InstituteId: instituteId,
       CourseDuration: courseDuration,
       CourseFee: courseFee,
+      RoyaltyType: royaltyType,
+      RoyaltyValue: royaltyValue,
       Subjects: subjects
     });
   }

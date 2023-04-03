@@ -17,6 +17,11 @@ import { CourseListComponent } from './course/course-list/course-list.component'
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-distribution/new-royalty-distribution.component';
+import { SubjectComponent } from './subject/subject.component';
+import { NewSubjectComponent } from './subject/new-subject/new-subject.component';
+import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
+import { SubjectListComponent } from './subject/subject-list/subject-list.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [    
@@ -31,7 +36,12 @@ import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-
     NewCourseComponent,
     CourseEditComponent,
     CourseListComponent,
-    RoyaltyDistributionComponent
+    RoyaltyDistributionComponent,
+    SubjectComponent,
+    NewSubjectComponent,
+    SubjectEditComponent,
+    SubjectListComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,

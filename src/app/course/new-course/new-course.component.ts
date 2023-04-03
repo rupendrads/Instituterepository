@@ -56,6 +56,11 @@ import { subjects } from '../services/data';
       this.selectedSubject = this.subjects.find(s => s.subjectId == selectedSubjectId);
     }
 
+    onChangeRoyaltyType(event: any){
+      console.log(event.target.value);
+      this.royaltyType = event.target.value;
+    }
+
     onSubmit() {      
       const course = new Course(
         this.form.value.courseId,
@@ -78,11 +83,6 @@ import { subjects } from '../services/data';
         complete: () => console.info('complete') 
       });
     }  
-
-    onChangeRoyaltyType(event: any){
-      console.log(event.target.value);
-      this.royaltyType = event.target.value;
-    }
 }
 
 

@@ -9,15 +9,21 @@ import { NewCourseComponent } from './course/new-course/new-course.component';
 import { CourseListComponent } from './course/course-list/course-list.component';
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-distribution/new-royalty-distribution.component';
+import { NewSubjectComponent } from './subject/new-subject/new-subject.component';
+import { SubjectListComponent } from './subject/subject-list/subject-list.component';
+import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
 
 const routes: Routes = [
-    {path: 'home', component: HomeComponent},
+    { path: 'home', component: HomeComponent},
     { path: 'signin', component: SignInComponent },
     { path: 'admission', component: NewAdmission },
     { path: 'register', component: NewUserComponent},
     { path: 'newcourse', component: NewCourseComponent},
     { path: 'courses', component: CourseListComponent},
     { path: 'editcourse/:id', component: CourseEditComponent},
+    { path: 'newsubject', component: NewSubjectComponent},
+    { path: 'subjects', component: SubjectListComponent},
+    { path: 'editsubject/:id', component: SubjectEditComponent},
     { path: 'profile/:id', component: EditUserComponent },
     { path: 'royaltydistribution', component: RoyaltyDistributionComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'},

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row-main">
+      <div class="col-main">
+			<div class="row" style="margin-left: 2px;">
+				<div class="col">
+					<button class="btn btn-success" (click)="onClickNewSubject()">
+							Add
+					</button>
+				</div>
+			</div>
+			<div class="row-table">
+				<div class="col-table">
+					<table class="table">
+						<thead>
+							<th>Subject Name</th>
+							<th>Options</th>
+						</thead>
+						<tbody>
+							<tr *ngFor="let subject of subjectList; let i = index"  >
+								<td>{{ subject.subjectName }}</td>
+								<td style="text-align: center;">
+										<a [routerLink]="['/editsubject/', subject.subjectId]" class="nav-link"><i class="fa-solid fa-pen-nib"></i></a>
+										<a (click)="deleteSubject(subject.subjectId)"><i class="fa-solid fa-trash"></i></a>                 
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+        	</div>
+      </div>
+    </div>
+</div> 
+
