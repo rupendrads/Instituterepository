@@ -21,7 +21,6 @@ import { SubjectComponent } from './subject/subject.component';
 import { NewSubjectComponent } from './subject/new-subject/new-subject.component';
 import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
 import { SubjectListComponent } from './subject/subject-list/subject-list.component';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [    
@@ -40,8 +39,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     SubjectComponent,
     NewSubjectComponent,
     SubjectEditComponent,
-    SubjectListComponent,
-    ConfirmationDialogComponent
+    SubjectListComponent
   ],
   imports: [
     BrowserModule,
