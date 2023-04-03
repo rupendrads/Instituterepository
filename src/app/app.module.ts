@@ -15,7 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 import { CourseListComponent } from './course/course-list/course-list.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
+import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-distribution/new-royalty-distribution.component';
 
 @NgModule({
   declarations: [    
@@ -29,10 +30,12 @@ import { DatePipe } from '@angular/common';
     CourseComponent,
     NewCourseComponent,
     CourseEditComponent,
-    CourseListComponent
+    CourseListComponent,
+    RoyaltyDistributionComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,

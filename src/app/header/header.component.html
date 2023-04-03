@@ -17,9 +17,12 @@
                 <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
                   <a routerLink="/courses" routerLinkActive="active" class="nav-link">Courses</a>
                 </li>
+                <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+                  <a routerLink="/royaltydistribution" routerLinkActive="active" class="nav-link">Roylty Distribution</a>
+                </li>
                 <li class="nav-item" *ngIf="isUserLoggedIn==true">
                   <a [routerLink]="['/profile', loggedInUserId]" routerLinkActive="active" class="nav-link">Update Profile</a>
-                </li>
+                </li>                
                 <li class="nav-item">
                   <a class="nav-link" href="#">About us</a>
                 </li>
