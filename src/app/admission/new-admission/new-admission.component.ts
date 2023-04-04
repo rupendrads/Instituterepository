@@ -9,6 +9,7 @@ import { Admission } from "../models/admission.model";
 import { AdmissionService } from "../services/admission.service";
 import { Router } from "@angular/router";
 import { CourseService } from "src/app/course/services/course.service";
+import { InstituteService } from "src/app/institute/services/institute.service";
 
 @Component({
     selector: 'new-admission',
@@ -23,18 +24,33 @@ import { CourseService } from "src/app/course/services/course.service";
       refUsers: User[] = [];
       anyReferral: boolean = false;
       admission: Admission;
+      instituteId: number|undefined;
+      instituteName:string = "";
 
       constructor(private userService: UserService,
         private authService: AuthService,
         private admissionService: AdmissionService,
         private courseService: CourseService,
+        private instituteService: InstituteService,
         private router: Router){
           this.admission = new Admission();
           this.admission.userId = this.authService.loggedInUserId;
+          this.instituteId = this.authService.loggedInUserInstituteId;
       }
 
       ngOnInit(){
         this.institutes = [...institutes];
+        if(this.instituteId!== undefined){
+          this.instituteService.getInstitute(this.instituteId).subscribe({
+            next: (result:any) => {
+              console.log(result);
+              this.instituteName = result.name;
+            },
+            error: (e) => console.log(e),
+            complete: () => console.log("completed")
+          });
+        }
+        
         this.courseService.getCourses().subscribe({
           next: (result:any) => {
             console.log(result);
@@ -55,16 +71,6 @@ import { CourseService } from "src/app/course/services/course.service";
           error: (e) => console.log(e),
           complete: () => console.log("Complete")
         });
-      }
-
-      onChangeInstitute(event:any){
-        console.log(event.target.value);
-        const selectedInstitueId = event.target.value;
-        this.admission.instituteId = selectedInstitueId;
-        this.courses = [...this.courses.filter(c => c.instituteId == selectedInstitueId)];
-        console.log(this.courses);
-        this.selectedCourse = undefined;
-        this.selectedSubjects = [];
       }
 
       onChangeCourse(event:any){

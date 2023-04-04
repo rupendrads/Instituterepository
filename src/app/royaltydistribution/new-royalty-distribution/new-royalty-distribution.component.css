@@ -41,4 +41,9 @@
     font-weight: bold;
     color: #6abd79;
   }
+
+  .distribute-button {
+    display: flex;
+    justify-content: center;
+  }
   
