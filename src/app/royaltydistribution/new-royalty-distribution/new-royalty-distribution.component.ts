@@ -14,6 +14,10 @@ export class RoyaltyDistributionComponent implements OnInit {
     }
     
     ngOnInit(): void {
+        this.getRoyaltiesToDistribute();
+    }
+
+    getRoyaltiesToDistribute(){
         this.royaltyDistributionService.getRoyaltyDistribution()?.subscribe({
             next: (result: any) => {
               console.log(result);              
@@ -25,7 +29,7 @@ export class RoyaltyDistributionComponent implements OnInit {
             },
             error: (e) => console.error(e),
             complete: () => console.info('complete') 
-        })
+        });
     }
 
     distributeRoyalties(){
@@ -54,14 +58,13 @@ export class RoyaltyDistributionComponent implements OnInit {
             ));
         });
         console.log(royaltiesToDistribute);
-        royaltiesToDistribute.forEach(rtd => {
-            this.royaltyDistributionService.distributeRoyalty(rtd).subscribe({
-                next: (result: any) => {
-                    console.log(result);
-                },
-                error: (e) => console.error(e),
-                complete: () => console.info('complete') 
-            });
+        this.royaltyDistributionService.distributeRoyalty(royaltiesToDistribute).subscribe({
+            next: (result: any) => {
+                console.log(result);
+                this.getRoyaltiesToDistribute();
+            },
+            error: (e) => console.error(e),
+            complete: () => console.info('complete') 
         });        
     }
 }

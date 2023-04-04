@@ -18,8 +18,8 @@ export class RoyaltyDistributionService {
         return undefined;
     }
 
-    distributeRoyalty(royaltyDistribution: iRoyaltyDistribution){
-        console.log(royaltyDistribution);
-        return this.http.post(`http://localhost:5032/api/RoyaltyDistribution`, royaltyDistribution);
+    distributeRoyalty(royaltyDistributions: iRoyaltyDistribution[]){
+        console.log(royaltyDistributions);
+        return this.http.post(`http://localhost:5032/api/RoyaltyDistribution`, royaltyDistributions);
     }
 }
