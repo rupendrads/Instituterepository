@@ -32,6 +32,16 @@ export class RoyaltyPayoutComponent implements OnInit {
     }
 
     payoutRoyalties(){
-        
+        console.log(this.royaltyDistributions);
+        const selectedRoyaltyDistributions = this.royaltyDistributions.filter(rd => rd.isSelected == true);
+        console.log(selectedRoyaltyDistributions);
+        this.royaltyPayoutService.payoutRoyalties(selectedRoyaltyDistributions)?.subscribe({
+            next: (result: any) => {
+                console.log(result);
+                this.getRoyaltiesToPayout();
+            },
+            error: (e) => console.error(e),
+            complete: () => console.info('complete') 
+        });
     }
 }
