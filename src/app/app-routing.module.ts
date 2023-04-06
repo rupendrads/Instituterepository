@@ -12,6 +12,7 @@ import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-
 import { NewSubjectComponent } from './subject/new-subject/new-subject.component';
 import { SubjectListComponent } from './subject/subject-list/subject-list.component';
 import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
+import { RoyaltyPayoutComponent } from './royaltypayout/new-royalty-payout/new-royalty-payout.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
     { path: 'editsubject/:id', component: SubjectEditComponent},
     { path: 'profile/:id', component: EditUserComponent },
     { path: 'royaltydistribution', component: RoyaltyDistributionComponent},
+    { path: 'royaltypayout', component: RoyaltyPayoutComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 

@@ -21,6 +21,7 @@ import { SubjectComponent } from './subject/subject.component';
 import { NewSubjectComponent } from './subject/new-subject/new-subject.component';
 import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
 import { SubjectListComponent } from './subject/subject-list/subject-list.component';
+import { RoyaltyPayoutComponent } from './royaltypayout/new-royalty-payout/new-royalty-payout.component';
 
 @NgModule({
   declarations: [    
@@ -36,6 +37,7 @@ import { SubjectListComponent } from './subject/subject-list/subject-list.compon
     CourseEditComponent,
     CourseListComponent,
     RoyaltyDistributionComponent,
+    RoyaltyPayoutComponent,
     SubjectComponent,
     NewSubjectComponent,
     SubjectEditComponent,

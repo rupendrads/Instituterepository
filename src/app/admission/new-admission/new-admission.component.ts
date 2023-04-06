@@ -36,6 +36,7 @@ import { InstituteService } from "src/app/institute/services/institute.service";
           this.admission = new Admission();
           this.admission.userId = this.authService.loggedInUserId;
           this.instituteId = this.authService.loggedInUserInstituteId;
+          this.admission.instituteId = this.instituteId;
       }
 
       ngOnInit(){
