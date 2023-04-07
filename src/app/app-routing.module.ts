@@ -11,11 +11,8 @@ import { CourseEditComponent } from './course/course-edit/course-edit.component'
 import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-distribution/new-royalty-distribution.component';
 import { NewSubjectComponent } from './subject/new-subject/new-subject.component';
 import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
-<<<<<<< HEAD
 import { SubjectListComponent } from './subject/subject-list/subject-list.component';
-=======
 import { RoyaltyPayoutComponent } from './royaltypayout/new-royalty-payout/new-royalty-payout.component';
->>>>>>> 546580074a69707572275126ea353614f8848d8c
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent},

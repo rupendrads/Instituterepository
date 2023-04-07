@@ -16,5 +16,28 @@
     height: 4rem;
     color: #e0343c;
   }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  
+  .mob-btn {
+    width: 250px;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 3;
+    background-color: #236423;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+  }
+
   
   

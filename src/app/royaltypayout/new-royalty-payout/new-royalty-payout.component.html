@@ -12,7 +12,7 @@
                     <tbody>
                       <tr *ngFor="let rd of royaltyDistributions; let i = index"  >
                         <td>{{rd.firstName}} {{rd.lastName}}</td>                        
-                        <td>{{rd.dateOfAdmission | date: "dd MMM yyyy"}}</td>
+                        <!-- <td>{{rd.dateOfAdmission | date: "dd MMM yyyy"}}</td> -->
                         <td>
                             <input type="checkbox" [checked]="rd.isSelected" (change)="rd.isSelected = !rd.isSelected"/>
                         </td>
