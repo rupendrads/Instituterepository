@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms'; 
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../services/course.service';
+import { MessageDialogService } from 'src/app/message-dialog/message-dialog.service'; 
 
 import { Course, iSubject }from '../models/course.model';
 import { iInstitute } from '../../institute/models/institute.model';
@@ -26,63 +27,66 @@ import { subjects } from '../services/data';
     royaltyTypes: string[] = [];
     royaltyType:string|undefined = undefined;
           
-    constructor(private courseService: CourseService, private route: ActivatedRoute,
-      private router:Router) {       
+    constructor(private courseService: CourseService, private messageDialogService: MessageDialogService, private route: ActivatedRoute, private router:Router) {       
         this.royaltyTypes = ["Percentage", "Amount"];
     }
     
-    ngOnInit(){
+   ngOnInit(){
        this.institutes = [...institutes];  
        this.subjects = [...subjects];   
-    }
+   }
       
-    onInstituteChanged(event: any):void {
+   onInstituteChanged(event: any):void {
       this.selectedInstitute = event.target.value;
-    };
+   };
           
-    onAddSubject() {
+   onAddSubject() {
       if(this.selectedSubject!== undefined && !this.selectedSubjects.includes(this.selectedSubject)){          
         this.selectedSubjects?.push(this.selectedSubject);
       }          
-    } 
+   } 
 
-    onDeleteSubject() {
+   onDeleteSubject() {
       let index = this.selectedSubjects?.indexOf(this.selectedSubject);
       this.selectedSubjects.splice(index, 1);
-    }    
+   }    
        
-    onChangeSubject(event:any){
+   onChangeSubject(event:any){
       const selectedSubjectId = event.target.value;
       this.selectedSubject = this.subjects.find(s => s.subjectId == selectedSubjectId);
-    }
+   }
 
-    onChangeRoyaltyType(event: any){
+   onChangeRoyaltyType(event: any){
       console.log(event.target.value);
       this.royaltyType = event.target.value;
-    }
+   }
 
-    onSubmit() {      
-      const course = new Course(
-        this.form.value.courseId,
-        this.form.value.coursename,
-        +this.selectedInstitute,
-        this.form.value.courseduration,
-        this.form.value.coursefee,
-        this.royaltyType,
-        this.form.value.royaltyvalue,
-        this.selectedSubjects
-      );
-      console.log(course);
+   onSubmit() {      
+		const course = new Course(
+			this.form.value.courseId,
+			this.form.value.coursename,
+			+this.selectedInstitute,
+			this.form.value.courseduration,
+			this.form.value.coursefee,
+			this.royaltyType,
+			this.form.value.royaltyvalue,
+			this.selectedSubjects
+			);
+			console.log(course);
 
-      this.courseService.addCourse(course).subscribe({
-        next: (result) => {
-          console.log(result);
-          this.router.navigateByUrl('/courses');
-        },
-        error: (e) => console.error(e),
-        complete: () => console.info('complete') 
-      });
-    }  
+		this.messageDialogService.okThis("New Course Added !",  () => {
+
+        	this.courseService.addCourse(course).subscribe({
+				next: (result) => {
+					console.log(result);
+					this.router.navigateByUrl('/courses');
+				},
+				error: (e) => console.error(e),
+				complete: () => console.info('complete') 
+			});
+				console.log(`Ok Clicked`);  
+      })
+   }  
 }
 
 

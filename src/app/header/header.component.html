@@ -1,3 +1,52 @@
+<<<<<<< HEAD
+<nav class="navbar navbar-light navbar-expand-md navbar-header">
+   <div class="container-fluid">
+		<a class="navbar-brand" href="#">
+			<img src="../../assets/Images/OxfordUniv.jpg" alt="" width="40" height="40" class="d-inline-block align-text-top">
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>                         
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">            
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a routerLink="/" routerLinkActive="active" class="nav-link active" aria-current="page">Home</a>
+				</li>                
+				<li class="nav-item" *ngIf="isUserLoggedIn==true">
+					<a routerLink="/admission" routerLinkActive="active" class="nav-link">Admission Form</a>
+				</li>
+				<li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+					<a routerLink="/courses" routerLinkActive="active" class="nav-link">Courses</a>
+				</li>
+				<li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+					<a routerLink="/subjects" routerLinkActive="active" class="nav-link">Subjects</a>
+				</li>
+				<li class="nav-item" *ngIf="isUserLoggedIn==true">
+					<a [routerLink]="['/profile', loggedInUserId]" routerLinkActive="active" class="nav-link">Update Profile</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About us</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Contact us</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class=”nav-item”>
+				<a routerLink="/signin" routerLinkActive="active" class="nav-link" *ngIf="isUserLoggedIn==false">Sign In</a>
+				<a routerLink="" (click)="signOut()" class="nav-link" *ngIf="isUserLoggedIn==true">Sign Out</a>
+				</li>
+			</ul>
+			<!-- icon -->
+			<div *ngIf="isUserLoggedIn==true">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6abd79" class="bi bi-person-circle" viewBox="0 0 16 16">
+					<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+					<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+				</svg>
+			</div>
+		</div>
+   </div>
+=======
 <nav class="navbar navbar-light navbar-expand-md navbar--header">
     <div class="container">
         <!-- <div class="navbar-header"> -->
@@ -51,5 +100,6 @@
             </div>
         </div>
     </div>
+>>>>>>> 546580074a69707572275126ea353614f8848d8c
 </nav>
 
