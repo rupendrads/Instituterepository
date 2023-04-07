@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../../authentication/services/auth.service';
 
+import { AuthService } from '../../authentication/services/auth.service';
+import { ConfirmDialogService } from 'src/app/confirm-dialog/confirm-dialog.service';
 import { SubjectService } from '../services/subject.service';
 import { iSubject } from '../models/subject.model';
 
@@ -19,10 +20,14 @@ export class SubjectEditComponent implements OnInit {
 	subjectName!: string;
 	instituteId!: number;
 
-	constructor(private subjectService: SubjectService, private route: ActivatedRoute, private router:Router, private authService: AuthService) { }
+	constructor(private subjectService: SubjectService, private confirmDialogService: ConfirmDialogService,private route: ActivatedRoute, private router:Router, private authService: AuthService) { }
 
   	ngOnInit(): void {
-    	const subjectId = this.route.snapshot.paramMap.get('id');
+    	this.loadData();
+	}
+
+	loadData() {
+		const subjectId = this.route.snapshot.paramMap.get('id');
 
     	if (subjectId != null) {
 			this.subject = {
@@ -39,7 +44,6 @@ export class SubjectEditComponent implements OnInit {
 			this.subjectName = result.subjectName;
 			this.subjectId = result.subjectId;
 			this.instituteId = result.instituteId;
-			console.log(this.subjectName);
 			},
 			error: (e) => console.log(e),
 			complete: () => console.log('Complete'),
@@ -50,11 +54,9 @@ export class SubjectEditComponent implements OnInit {
 	onSubmit() {
 		console.log(this.authService.loggedInUserInstituteId);
 			if(this.authService.loggedInUserInstituteId!== undefined) {
-				if(confirm("Confirm to update this subject?")) {
-					console.log("Confirm to update this subject?");
-				
-					console.log(this.subject);
-				
+
+			this.confirmDialogService.confirmThis("Are you sure to update?",  () => { 
+
 				this.subjectService.updateSubject(
 					this.subject.subjectId,
 					this.subject.subjectName,
@@ -69,7 +71,11 @@ export class SubjectEditComponent implements OnInit {
 						console.info('complete');
 					},
 				});
-			} 
+				console.log(`Confirm Clicked`);  
+			}, () => {       
+				console.log(`Cancel Clicked`);  
+				this.loadData();  
+			})
 		}
 	}
 }

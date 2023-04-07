@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NewAdmission } from './admission/new-admission/new-admission.component';
@@ -16,12 +15,13 @@ import { HomeComponent } from './home/home.component';
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 import { CourseListComponent } from './course/course-list/course-list.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
-import { DatePipe } from '@angular/common';
 import { SubjectComponent } from './subject/subject.component';
 import { NewSubjectComponent } from './subject/new-subject/new-subject.component';
 import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
 import { SubjectListComponent } from './subject/subject-list/subject-list.component';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { CommonModule, DatePipe } from '@angular/common';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 
 @NgModule({
   declarations: [    
@@ -40,17 +40,19 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     NewSubjectComponent,
     SubjectEditComponent,
     SubjectListComponent,
-    ConfirmationDialogComponent
+    ConfirmDialogComponent,
+    MessageDialogComponent
   ],
   imports: [
-    NgbModule,
     BrowserModule,
+    CommonModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [DatePipe],
-  bootstrap: [AppComponent]
+  exports: [],  
+  providers: [ DatePipe ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

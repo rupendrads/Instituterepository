@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Routes, RouterModule } from '@angular/router'; 
 import { NewAdmission } from './admission/new-admission/new-admission.component';
 import { SignInComponent } from './authentication/sign-in/sign-in.component';
@@ -10,8 +9,8 @@ import { NewCourseComponent } from './course/new-course/new-course.component';
 import { CourseListComponent } from './course/course-list/course-list.component';
 import { CourseEditComponent } from './course/course-edit/course-edit.component';
 import { NewSubjectComponent } from './subject/new-subject/new-subject.component';
-import { SubjectListComponent } from './subject/subject-list/subject-list.component';
 import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
+import { SubjectListComponent } from './subject/subject-list/subject-list.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -29,10 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-    NgbModule
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
