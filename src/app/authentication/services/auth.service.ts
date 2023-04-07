@@ -25,9 +25,8 @@ export class AuthService {
             this.loggedInUserName = result.loggedIn == true ? username: undefined;
             this.loggedInUserId = result.loggedIn == true ? result.userId : undefined; 
             this.loggedInUserType = result.loggedIn == true ? result.userType : undefined; 
-            this.loggedInUserInstituteId = result.loggedIn == true ? result.instituteId: undefined;
-            console.log(this.loggedInUserInstituteId);   
-
+            this.loggedInUserInstituteId = result.loggedIn == true ? result.instituteId : undefined;   
+            console.log(this.loggedInUserInstituteId);    
             this.userLoggedInSubject.next({isUserLoggedIn: this.isUserLoggedIn, loggedInUserId: this.loggedInUserId, loggedInUserType: this.loggedInUserType});
           },
           error: (e) => console.log(e),

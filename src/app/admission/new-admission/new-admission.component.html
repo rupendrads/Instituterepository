@@ -11,12 +11,7 @@
                     <label class="col-form-label">Institute</label>
                 </div>
                 <div class="col-md-8 field-value-div">
-                    <select class="form-control form-control-sm" (change)="onChangeInstitute($event)">
-                        <option [value]="null" hidden>Select Institute</option>
-                        <option *ngFor="let institute of institutes" value={{institute.id}}> 
-                            {{institute.name}}
-                        </option>
-                    </select>
+                    <label class="col-form-label">{{instituteName}}</label>
                 </div>
             </div>
             <div class="form-group row">

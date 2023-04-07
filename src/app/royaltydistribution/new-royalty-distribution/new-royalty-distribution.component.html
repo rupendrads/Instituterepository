@@ -1,0 +1,71 @@
+<div class="container entry-form">
+    <div class="row" style="width: 100%;">
+        <div class="col entry-form-col" >
+            <!-- <div class="row" *ngFor="let rd of royaltyDistributions" style="display:flex;flex-grow: 1;">
+                <div class="col-md-12"> -->
+                    <!-- <div class="row" style="flex-grow: 1;">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-md-2">        
+                                    <label class="col-form-label"><strong>Student</strong></label>                                    
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="col-form-label">{{rd.firstName}} {{rd.lastName}}</label>                 
+                                </div>
+                                <div class="col-md-2">        
+                                    <label class="col-form-label"><strong>Date Of Admission</strong></label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="col-form-label">{{rd.dateOfAdmission}}</label>                                    
+                                </div>
+                            </div>                                                        
+                        </div>                        
+                    </div>                     -->
+                    <!-- <div class="row-table">
+                        <div class="col-table">
+                          <table class="table">
+                            <thead>
+                              <th>Level</th>
+                              <th>Referral</th>
+                              <th>Royalty Amount</th>                              
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let rdd of rd.royaltyDistributionDetails; let i = index"  >
+                                <td>{{i + 1}}</td>
+                                <td>{{ rdd.firstName }} {{ rdd.lastName }}</td>
+                                <td>Rs. {{ rdd.royaltyAmount }}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div> -->
+                <!-- </div>
+            </div> -->
+            <div class="row-table">
+                <div class="col-table">
+                  <table class="table">
+                    <thead>
+                      <th>Student</th>
+                      <th>Date of Admission</th>
+                      <th></th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let rd of royaltyDistributions; let i = index"  >
+                        <td>{{rd.firstName}} {{rd.lastName}}</td>                        
+                        <td>{{rd.dateOfAdmission | date: "dd MMM yyyy"}}</td>
+                        <td>
+                            <input type="checkbox" [checked]="rd.isSelected" (change)="rd.isSelected = !rd.isSelected"/>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col distribute-button">
+                    <button class="btn btn-success" type="button" (click)="distributeRoyalties()">Distribute Royalties</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
