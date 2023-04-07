@@ -1,20 +1,74 @@
-<div class="container entry-form">
-    <div class="row">
-        <div class="col entry-form-col">
-            <div class="row">
-                <div class="col-md-12 title">
-                    <h2 class="page-title">Welcome</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed eleifend nunc, et suscipit dui. Suspendisse potenti. Aliquam ornare accumsan lacinia. Nam mattis feugiat mauris, vitae placerat metus maximus in. Sed eu ante mauris. Fusce ex nunc, tempus sed nulla in, pellentesque iaculis eros. Cras et orci ac tellus dictum ultrices. Pellentesque egestas, lectus et vulputate interdum, ante purus vestibulum eros, eget interdum leo sapien efficitur tortor.
+<section class="section-biodata section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 title">
+				<h2 class="page-title">Welcome</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 data">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed eleifend nunc, et suscipit dui. Suspendisse potenti. Aliquam ornare accumsan lacinia. Nam mattis feugiat mauris, vitae placerat metus maximus in. Sed eu ante mauris. Fusce ex nunc, tempus sed nulla in, pellentesque iaculis eros. Cras et orci ac tellus dictum ultrices. Pellentesque egestas, lectus et vulputate interdum, ante purus vestibulum eros, eget interdum leo sapien efficitur tortor.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
 
-                        Aliquam erat volutpat. Maecenas sit amet tempor metus. Mauris vel erat faucibus elit venenatis eleifend ut eu lectus. Praesent commodo augue ut nunc sagittis, ut elementum felis pulvinar. Donec lacinia lobortis ipsum, at consequat turpis sodales sit amet. Fusce justo tellus, elementum ut justo vel, fringilla ullamcorper velit. Fusce et dignissim leo, vel posuere nisl. Proin at pretium ex. In lacinia eros commodo imperdiet iaculis. Donec cursus pulvinar enim in efficitur. Vestibulum et malesuada tortor, at fringilla sapien. Praesent tristique fermentum nisl ut tristique. Sed vestibulum sodales metus et luctus. Vestibulum elementum dui et interdum pulvinar. Donec finibus lectus elementum urna vehicula accumsan.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div class="container-mobile">
+  <div class="row">
+		<nav class="navbar navbar-light navbar-expand-md navbar-header">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="../../assets/Images/OxfordUniv.jpg" alt="" width="40" height="40" class="d-inline-block align-text-top">
+				</a>
+
+				<div class="mobile-navbar-btn">
+					<a><i class="fa-regular fa-bars"></i></a>
+					<a><i class="fa-regular fa-xmark"></i></a>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<main>
+		<section class="section-buttons section">
+			<div class="container">
+				<div class="row">
+					<div class="d-grid gap-2 btn-group">
+						<div class="btn-primary">
+							<a routerLink="/" routerLinkActive="active" class="link-primary active" aria-current="page"  role="button" data-bs-toggle="button" aria-pressed="true">Home</a>
+						</div>
+						<div class="btn-primary" *ngIf="isUserLoggedIn==true">
+							<a routerLink="/admission" routerLinkActive="active" class="link-primary" role="button" data-bs-toggle="button" aria-pressed="true">Admission Form</a>
+						</div>
+						<div class="btn-primary" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+							<a routerLink="/courses" routerLinkActive="active" class="link-primary" role="button" data-bs-toggle="button" aria-pressed="true">Courses</a>
+						</div>
+						<div class="btn-primary" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+							<a routerLink="/subjects" routerLinkActive="active" class="link-primary" role="button" data-bs-toggle="button" aria-pressed="true">Subjects</a>
+						</div>
+						<div class="btn-primary" *ngIf="isUserLoggedIn==true">
+							<a [routerLink]="['/profile', loggedInUserId]" routerLinkActive="active" class="link-primary" class="btn btn-primary" role="button" data-bs-toggle="button" aria-pressed="true">Update Profile</a>
+						</div>
+						<div class="btn-primary">
+							<a href="#" class="link-primary" class="btn btn-primary" role="button" data-bs-toggle="button" aria-pressed="true">About us</a>
+						</div>
+						<div class="btn-primary">
+							<a href="#" class="link-primary" class="btn btn-primary" role="button" data-bs-toggle="button" aria-pressed="true">Contact us</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
 </div>    
+
+
+
+		<!-- <div class="row">
+			<div class="container mt-3">
+				<div class="mt-5 d-grid gap-2 d-md-block">
+					
+				</div>
+			</div> -->
