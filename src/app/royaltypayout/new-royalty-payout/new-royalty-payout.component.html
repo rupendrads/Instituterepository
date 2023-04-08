@@ -8,14 +8,38 @@
                       <th>Student</th>
                       <th>Date of Admission</th>
                       <th></th>
+                      <th></th>
                     </thead>
                     <tbody>
                       <tr *ngFor="let rd of royaltyDistributions; let i = index"  >
                         <td>{{rd.firstName}} {{rd.lastName}}</td>                        
                         <td>{{rd.dateOfAdmission | date: "dd MMM yyyy"}}</td>
                         <td>
+                          <button class="btn btn-light referral-button" (click)="showReferrals(referrals)">Show referrrals</button>
+                        </td>
+                        <td>
                             <input type="checkbox" [checked]="rd.isSelected" (change)="rd.isSelected = !rd.isSelected"/>
                         </td>
+                        <ng-template #referrals>
+                          <div class="row-table">
+                            <div class="col-table">
+                              <table class="table">
+                                <thead>
+                                  <th>Level</th>
+                                  <th>Referral</th>
+                                  <th>Royalty Amount</th>                              
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let rdd of rd.royaltyDistributionDetails; let i = index"  >
+                                    <td>{{i + 1}}</td>
+                                    <td>{{ rdd.firstName }} {{ rdd.lastName }}</td>
+                                    <td>Rs. {{ rdd.royaltyAmount }}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </ng-template>
                       </tr>
                     </tbody>
                   </table>
@@ -29,3 +53,4 @@
         </div>
     </div>
 </div>
+<app-content-dialog></app-content-dialog>

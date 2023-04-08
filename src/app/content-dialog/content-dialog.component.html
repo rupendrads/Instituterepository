@@ -1,0 +1,22 @@
+<div *ngIf="content" class="modal" tabindex="-1" role="dialog">    
+    <div class="modal-dialog custom-alert" role="document">    
+       <div class="modal-content">    
+             <div *ngIf="content?.type == 'ok'" class="modal-body">    
+                 <div class="row">    
+                     <div class="col-md-12">                             
+                        <ng-container *ngTemplateOutlet="content.text"></ng-container>
+                     </div>
+                 </div>    
+                 <div class="row">    
+                     <div class="col-md-12">    
+                         <p class="ok-button">							   
+                             <a class="mr-2" (click)="content.okFun()">    
+                                 <button class="btn btn-ok">OK</button>    
+                             </a>   
+                         </p>    
+                     </div>    
+                 </div>    
+             </div>    
+       </div>    
+    </div>    
+ </div>

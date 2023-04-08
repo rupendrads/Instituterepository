@@ -24,6 +24,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 import { RoyaltyPayoutComponent } from './royaltypayout/new-royalty-payout/new-royalty-payout.component';
 import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-distribution/new-royalty-distribution.component';
+import { ContentDialogComponent } from './content-dialog/content-dialog.component';
 
 @NgModule({
   declarations: [    
@@ -45,7 +46,8 @@ import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-
     SubjectEditComponent,
     SubjectListComponent,
     ConfirmDialogComponent,
-    MessageDialogComponent
+    MessageDialogComponent,
+    ContentDialogComponent
   ],
   imports: [
     BrowserModule,

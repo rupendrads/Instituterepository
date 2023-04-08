@@ -46,4 +46,11 @@
     display: flex;
     justify-content: center;
   }
+
+  .referral-button {
+    border-color: #6c757d;
+    margin-top:0px;
+    padding-top:0px;
+    padding-bottom:0px;
+  }
   
