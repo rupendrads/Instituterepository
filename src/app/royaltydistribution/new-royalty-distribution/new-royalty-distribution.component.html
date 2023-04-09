@@ -22,6 +22,26 @@
                         </td>
                         <ng-template #referrals>
                           <div class="row-table">
+                            <div class="col-table" style="display:flex;flex-direction: row;padding: 5px 5px;">
+                                <div class="col-md-6" style="padding-left: 0px;">
+                                  <div>
+                                    <label class="student-label">Student</label>
+                                  </div>
+                                  <div>
+                                    <label>{{rd.firstName}} {{rd.lastName}}</label>
+                                  </div>
+                                </div>
+                                <div class="col-md-6" style="padding-left: 0px;">
+                                  <div>
+                                    <label class="student-label">Date of Admission</label>
+                                  </div>
+                                  <div>
+                                    <label>{{rd.dateOfAdmission | date: "dd MMM yyyy"}}</label>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                          <div class="row-table">
                             <div class="col-table">
                               <table class="table">
                                 <thead>
