@@ -1,6 +1,6 @@
-<div>
-	<section class="section-biodata section">
-		<div class="container">
+
+	<section class="section-biodata">
+		<div class="container biodata-container">
 			<div class="row">
 				<div class="col-md-12 title">
 					<h2 class="page-title">Welcome</h2>
@@ -15,33 +15,27 @@
 			</div>
 		</div>
 	</section>
-	<section class="section-buttons section">
-		<div class="container">
+	<section class="section-buttons">
+		<div class="container button-container">
 			<div class="row">
-				<div class="d-grid gap-2 btn-group">
-					<div class="btn-primary">
-						<a routerLink="/" routerLinkActive="active" class="link-primary active" aria-current="page"  role="button" data-bs-toggle="button" aria-pressed="true">Home</a>
+				<div class="col button-col">
+					<div class="row btn-mob">
+						<a routerLink="/" routerLinkActive="active" class="btn-button">Home</a>
 					</div>
-					<div class="btn-primary" *ngIf="isUserLoggedIn==true">
-						<a routerLink="/admission" routerLinkActive="active" class="link-primary" role="button" data-bs-toggle="button" aria-pressed="true">Admission Form</a>
+					<div class="row btn-mob">
+						<a href="#" class="btn-button">About us</a>
 					</div>
-					<div class="btn-primary" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
-						<a routerLink="/courses" routerLinkActive="active" class="link-primary" role="button" data-bs-toggle="button" aria-pressed="true">Courses</a>
+					<div class="row btn-mob">
+						<a href="#" class="btn-button">Contact us</a>
 					</div>
-					<div class="btn-primary" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
-						<a routerLink="/subjects" routerLinkActive="active" class="link-primary" role="button" data-bs-toggle="button" aria-pressed="true">Subjects</a>
-					</div>
-					<div class="btn-primary" *ngIf="isUserLoggedIn==true">
-						<a [routerLink]="['/profile', loggedInUserId]" routerLinkActive="active" class="link-primary" class="btn btn-primary" role="button" data-bs-toggle="button" aria-pressed="true">Update Profile</a>
-					</div>
-					<div class="btn-primary">
-						<a href="#" class="link-primary" class="btn btn-primary" role="button" data-bs-toggle="button" aria-pressed="true">About us</a>
-					</div>
-					<div class="btn-primary">
-						<a href="#" class="link-primary" class="btn btn-primary" role="button" data-bs-toggle="button" aria-pressed="true">Contact us</a>
+					<div class="row btn-mob">
+						<a routerLink="/signin" routerLinkActive="active" class="btn-button" *ngIf="isUserLoggedIn==false">Sign In</a>
+						<a routerLink="" (click)="signOut()" class="btn-button" *ngIf="isUserLoggedIn==true">Sign Out</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-</div>    
+    
+
+	
