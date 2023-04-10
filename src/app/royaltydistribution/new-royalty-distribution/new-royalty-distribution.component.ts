@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { iRoyaltyDistribution, iRoyaltyDistributionDetails, RoyaltyDistribution } from "../models/royaltydistribution.model";
 import { RoyaltyDistributionService } from "../services/royaltydistribution.service"
+import { ContentDialogService } from "src/app/content-dialog/content-dialog.service";
 
 @Component({
     selector: 'new-royalty-distribution',
@@ -10,7 +11,8 @@ import { RoyaltyDistributionService } from "../services/royaltydistribution.serv
 export class RoyaltyDistributionComponent implements OnInit { 
     royaltyDistributions: any[] = [];
 
-    constructor(private royaltyDistributionService: RoyaltyDistributionService){        
+    constructor(private royaltyDistributionService: RoyaltyDistributionService,
+        private contentDialogService: ContentDialogService){        
     }
     
     ngOnInit(): void {
@@ -66,5 +68,12 @@ export class RoyaltyDistributionComponent implements OnInit {
             error: (e) => console.error(e),
             complete: () => console.info('complete') 
         });        
+    }
+
+    showReferrals(content: any){
+        console.log(content);
+        this.contentDialogService.okThis(content,  () => {
+                console.log(`Ok Clicked`);  
+          });
     }
 }
