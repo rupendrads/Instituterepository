@@ -20,22 +20,39 @@
 			<div class="row">
 				<div class="col button-col">
 					<div class="row btn-mob">
-						<a routerLink="/" routerLinkActive="active" class="btn-button">Home</a>
+						<a routerLink="/" routerLinkActive="active" class="nav-link"><button class="btn-button">Home</button> </a>
 					</div>
 					<div class="row btn-mob">
-						<a href="#" class="btn-button">About us</a>
+						<a href="#" class="nav-link"><button class="btn-button">About us</button></a>
 					</div>
 					<div class="row btn-mob">
-						<a href="#" class="btn-button">Contact us</a>
+						<a routerLink="/admission" routerLinkActive="active"  *ngIf="isUserLoggedIn==true" class="nav-link"><button class="btn-button">Admission Form</button></a>
 					</div>
 					<div class="row btn-mob">
-						<a routerLink="/signin" routerLinkActive="active" class="btn-button" *ngIf="isUserLoggedIn==false">Sign In</a>
-						<a routerLink="" (click)="signOut()" class="btn-button" *ngIf="isUserLoggedIn==true">Sign Out</a>
+						<a routerLink="/courses" routerLinkActive="active" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'" class="nav-link"><button class="btn-button">Courses</button></a>
+					</div>
+					<div class="row btn-mob">
+						<a routerLink="/royaltydistribution" routerLinkActive="active" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'" class="nav-link"><button class="btn-button">Roylty Distribution</button></a>
+					</div>
+					<div class="row btn-mob">
+						<a routerLink="/royaltypayout" routerLinkActive="active" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'" class="nav-link"><button class="btn-button">Roylty Payout</button></a>
+					</div>
+					<div class="row btn-mob">
+						<a routerLink="/subjects" routerLinkActive="active" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'" class="nav-link"><button class="btn-button">Subjects</button></a>
+					</div>
+					<div class="row btn-mob">
+						<a [routerLink]="['/profile', loggedInUserId]" routerLinkActive="active"  *ngIf="isUserLoggedIn==true" class="nav-link"><button class="btn-button">Update Profile</button></a>
+					</div>
+					<div class="row btn-mob">
+						<a href="#" class="nav-link"><button class="btn-button">Contact us</button></a>
+					</div>
+					<div class="row btn-mob">
+						<a routerLink="/signin" routerLinkActive="active"  *ngIf="isUserLoggedIn==false" class="nav-link"><button class="btn-button"> Sign In</button> </a>
+						<a routerLink="" (click)="signOut()" *ngIf="isUserLoggedIn==true" class="nav-link"><button class="btn-button">Sign Out</button> </a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-    
 
 	

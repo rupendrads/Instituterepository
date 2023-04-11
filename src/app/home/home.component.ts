@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+//import { RouterModule } from '@angular/router';
 import { AuthService } from '../authentication/services/auth.service';
+
 
 @Component({
     selector:'home',
@@ -9,6 +11,8 @@ import { AuthService } from '../authentication/services/auth.service';
 export class HomeComponent implements OnInit {
     isUserLoggedIn:boolean = false;
     loggedInUserName:string|undefined = undefined;
+    loggedInUserId:string|undefined = undefined;
+    loggedInUserType: string|undefined = undefined;
     
     constructor(private authService:AuthService){        
     }
@@ -18,8 +22,11 @@ export class HomeComponent implements OnInit {
           next: (result: any) => {
             console.log(result);
             this.isUserLoggedIn = result.isUserLoggedIn;
+            this.loggedInUserId = result.isUserLoggedIn == true? result.loggedInUserId : undefined;
+            this.loggedInUserType = result.isUserLoggedIn  == true? result.loggedInUserType : undefined;
             
             console.log(this.isUserLoggedIn);
+            console.log(this.loggedInUserType);
           },
           error: (e)=> console.log(e),
           complete: () => console.log("complete")      

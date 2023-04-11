@@ -29,6 +29,10 @@
       text-decoration: none;
     }
 
+    .nav-link {
+      font-size: 1.5rem;
+    }
+
     .btn-button:hover {
       background-color: #fdcd7f;
       box-shadow: 0px 2px 10px 5px #a3c2a8;
@@ -44,19 +48,23 @@
 
   .biodata-container {
     display: unset;
+    /* visibility: visible; */
   }
   .button-container {
     display: none;
+    /* visibility: hidden; */
   }
 }
   
 
 @media (max-width: 768px) {
 
-  .button-container {
-    display: unset;
-  }
   .biodata-container {
     display: none;
+    /* visibility: hidden; */
+  }
+  .button-container {
+    display: unset;
+    /* visibility: visible; */
   }
 }
