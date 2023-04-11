@@ -40,6 +40,7 @@ import { ContentDialogComponent } from './content-dialog/content-dialog.componen
     CourseEditComponent,
     CourseListComponent,
     RoyaltyDistributionComponent,
+    RoyaltyPayoutComponent,
     SubjectComponent,
     NewSubjectComponent,
     SubjectEditComponent,
