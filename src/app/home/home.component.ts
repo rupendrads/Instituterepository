@@ -10,7 +10,6 @@ import { AuthService } from '../authentication/services/auth.service';
 })
 export class HomeComponent implements OnInit {
     isUserLoggedIn:boolean = false;
-    loggedInUserName:string|undefined = undefined;
     loggedInUserId:string|undefined = undefined;
     loggedInUserType: string|undefined = undefined;
     
@@ -18,6 +17,8 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(){
+        this.isUserLoggedIn = this.authService.isUserLoggedIn;
+        this.loggedInUserType = this.authService.loggedInUserType;
         this.authService.userLoggedInSubject.subscribe({
           next: (result: any) => {
             console.log(result);
