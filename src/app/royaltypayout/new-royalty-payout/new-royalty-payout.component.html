@@ -2,7 +2,7 @@
     <div class="row" style="width: 100%;">
         <div class="col entry-form-col" >            
             <div class="row-table">
-                <div class="col-table">
+                <div class="col-table table-responsive-md">
                   <table class="table">
                     <thead>
                       <th>Student</th>
@@ -13,7 +13,7 @@
                     <tbody>
                       <tr *ngFor="let rd of royaltyDistributions; let i = index"  >
                         <td>{{rd.firstName}} {{rd.lastName}}</td>                        
-                        <!-- <td>{{rd.dateOfAdmission | date: "dd MMM yyyy"}}</td> -->
+                        <td>{{rd.dateOfAdmission | date: "dd MMM yyyy"}}</td>
                         <td>
                           <button class="btn btn-light referral-button" (click)="showReferrals(referrals)">Show referrrals</button>
                         </td>
