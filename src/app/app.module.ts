@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NewAdmission } from './admission/new-admission/new-admission.component';
@@ -58,6 +59,7 @@ import { RoyaltyReportComponent } from './royaltyreport/royalty-report/royalty-r
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    RouterModule
   ],
   exports: [],  
   providers: [ DatePipe ],
