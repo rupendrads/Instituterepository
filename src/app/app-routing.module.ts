@@ -13,6 +13,7 @@ import { NewSubjectComponent } from './subject/new-subject/new-subject.component
 import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
 import { SubjectListComponent } from './subject/subject-list/subject-list.component';
 import { RoyaltyPayoutComponent } from './royaltypayout/new-royalty-payout/new-royalty-payout.component';
+import { RoyaltyReportComponent } from './royaltyreport/royalty-report/royalty-report.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
     { path: 'profile/:id', component: EditUserComponent },
     { path: 'royaltydistribution', component: RoyaltyDistributionComponent},
     { path: 'royaltypayout', component: RoyaltyPayoutComponent},
+    { path: 'royaltyreport', component: RoyaltyReportComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 

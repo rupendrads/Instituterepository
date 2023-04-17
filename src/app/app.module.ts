@@ -25,6 +25,7 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
 import { RoyaltyPayoutComponent } from './royaltypayout/new-royalty-payout/new-royalty-payout.component';
 import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-distribution/new-royalty-distribution.component';
 import { ContentDialogComponent } from './content-dialog/content-dialog.component';
+import { RoyaltyReportComponent } from './royaltyreport/royalty-report/royalty-report.component';
 
 @NgModule({
   declarations: [    
@@ -41,6 +42,7 @@ import { ContentDialogComponent } from './content-dialog/content-dialog.componen
     CourseListComponent,
     RoyaltyDistributionComponent,
     RoyaltyPayoutComponent,
+    RoyaltyReportComponent,
     SubjectComponent,
     NewSubjectComponent,
     SubjectEditComponent,
