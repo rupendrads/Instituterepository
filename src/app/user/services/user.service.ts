@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class UserService {
 
   addUser(user: User) {   
     console.log(user);
-    return this.http.post("http://localhost:5032/api/Users", user);     
+    return this.http.post(`${environment.host}/api/Users`, user);     
   }
 
   updateUser(userId:string,
@@ -21,7 +22,7 @@ export class UserService {
     phoneNo: string, 
     email: string,
     address: string) {
-    return this.http.put(`http://localhost:5032/api/Users/${userId}`, {
+    return this.http.put(`${environment.host}/api/Users/${userId}`, {
       Id: userId,
       FirstName: firstName,
       LastName: lastName,
@@ -34,10 +35,10 @@ export class UserService {
   }
 
   getUser(userId: string){
-    return this.http.get(`http://localhost:5032/api/Users/${userId}`);     
+    return this.http.get(`${environment.host}/api/Users/${userId}`);     
   }
 
   getUsers(){
-    return this.http.get("http://localhost:5032/api/Users");     
+    return this.http.get(`${environment.host}/api/Users`);     
   }
 }

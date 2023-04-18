@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Admission } from "../models/admission.model";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -10,6 +11,6 @@ export class AdmissionService {
 
     addAadmission(admission: Admission) {   
         console.log(admission);
-        return this.http.post("http://localhost:5032/api/admission", admission);     
+        return this.http.post(`${environment.host}/api/admission`, admission);     
     }
 }

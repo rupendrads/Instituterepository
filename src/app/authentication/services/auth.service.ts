@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +18,7 @@ export class AuthService {
     }
       
     login(username:string, password:string ) {        
-        this.http.post("http://localhost:5032/api/auth", { username: username, password: password}).subscribe({
+        this.http.post(`${environment.host}/api/auth`, { username: username, password: password}).subscribe({
             next: (result: any) => {
             console.log(result);
 
