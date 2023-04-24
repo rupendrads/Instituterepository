@@ -26,10 +26,14 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
 import { RoyaltyPayoutComponent } from './royaltypayout/new-royalty-payout/new-royalty-payout.component';
 import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-distribution/new-royalty-distribution.component';
 import { ContentDialogComponent } from './content-dialog/content-dialog.component';
+import { AboutUsComponent } from './aboutus/aboutus.component';
+import { ContactUsComponent } from './contactus/contactus.component';
 
 @NgModule({
   declarations: [    
     HomeComponent,
+    AboutUsComponent,
+    ContactUsComponent,
     HeaderComponent,
     NewUserComponent,
     EditUserComponent,

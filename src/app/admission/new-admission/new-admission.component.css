@@ -1,10 +1,56 @@
-.admission-form-detail {
+.page-title {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.entry-form-col {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     flex-direction: column;
+    margin-top: 50px;
+}
+
+.form-control-sm {
+    width: 225px;
+}
+
+#datepicker {
+    align-items: start;
+}
+
+.form-group row btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+  
+
+@media (max-width: 575px) {
+
+    .field-label-div {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .form-control-sm {
+        width: 225px;
+    }
+    
 }
 
 @media (min-width: 576px) {
-    .admission-form {
-        min-width: 500px;
+
+    .field-label-div {
+        display: flex;
+        justify-content: flex-end;
     }
+
+    .form-control-sm {
+        width: 225px;
+    }
+ 
 }

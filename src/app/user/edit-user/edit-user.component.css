@@ -1,0 +1,27 @@
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control-sm {
+    width: 225px;
+}
+
+@media (max-width: 767px) {
+
+    .field-label-div {
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+}
+
+@media (min-width: 768px) { 
+
+    .field-label-div {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+}

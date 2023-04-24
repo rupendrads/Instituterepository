@@ -12,6 +12,11 @@ body {
 
 .with-header {
   margin-top: 0rem;
+  margin-bottom: 40px;
+}
+
+.navbar-header {
+  margin-bottom: 40px;
 }
 
 .register {
