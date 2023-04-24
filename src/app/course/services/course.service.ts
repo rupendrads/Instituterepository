@@ -2,6 +2,7 @@ import { OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Course, iSubject } from '../../course/models/course.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,19 +16,19 @@ export class CourseService implements OnInit{
   }
 
   getCourses() {
-    return this.http.get("http://localhost:5032/api/Course");
+    return this.http.get(`${environment.host}/api/Course`);
   }
 
   getCourse(courseId: string){
-    return this.http.get(`http://localhost:5032/api/Course/${courseId}`);     
+    return this.http.get(`${environment.host}/api/Course/${courseId}`);     
   }
   
   addCourse(course: Course) {
-    return this.http.post("http://localhost:5032/api/Course", course);
+    return this.http.post(`${environment.host}/api/Course`, course);
   }
 
   deleteCourse(courseId: number){
-    return this.http.delete(`http://localhost:5032/api/Course/${courseId}`);     
+    return this.http.delete(`${environment.host}/api/Course/${courseId}`);     
   }
   
   updateCourse(
@@ -40,7 +41,7 @@ export class CourseService implements OnInit{
     royaltyValue: number,
     
     subjects: iSubject[]) {
-    return this.http.put(`http://localhost:5032/api/Course/${courseId}`, {
+    return this.http.put(`${environment.host}/api/Course/${courseId}`, {
       CourseId: courseId,
       CourseName: courseName,
       InstituteId: instituteId,

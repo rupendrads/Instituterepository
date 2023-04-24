@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { iRoyaltyDistribution, iRoyaltyDistributionDetails, RoyaltyDistribution } from "../../royaltydistribution/models/royaltydistribution.model";
 import { RoyaltyPayoutService } from "../services/royaltypayout.service";
 import { ContentDialogService } from "src/app/content-dialog/content-dialog.service";
 

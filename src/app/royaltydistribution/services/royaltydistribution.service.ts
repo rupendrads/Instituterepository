@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { AuthService } from "../../authentication/services/auth.service"
-import { RoyaltyDistribution, iRoyaltyDistribution } from "../models/royaltydistribution.model";
+import { iRoyaltyDistribution } from "../models/royaltydistribution.model";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -13,13 +14,13 @@ export class RoyaltyDistributionService {
     getRoyaltyDistribution() {
         console.log(this.authService.loggedInUserInstituteId);
         if(this.authService.loggedInUserInstituteId !== undefined){
-            return this.http.get(`http://localhost:5032/api/RoyaltyDistribution?instituteId=${this.authService.loggedInUserInstituteId}`);
+            return this.http.get(`${environment.host}/api/RoyaltyDistribution?instituteId=${this.authService.loggedInUserInstituteId}`);
         }
         return undefined;
     }
 
     distributeRoyalty(royaltyDistributions: iRoyaltyDistribution[]){
         console.log(royaltyDistributions);
-        return this.http.post(`http://localhost:5032/api/RoyaltyDistribution`, royaltyDistributions);
+        return this.http.post(`${environment.host}/api/RoyaltyDistribution`, royaltyDistributions);
     }
 }

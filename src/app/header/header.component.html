@@ -78,10 +78,13 @@
               <a routerLink="/courses" routerLinkActive="active" class="nav-link">Courses</a>
             </li>
             <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
-              <a routerLink="/royaltydistribution" routerLinkActive="active" class="nav-link">Roylty Distribution</a>                  
+              <a routerLink="/royaltydistribution" routerLinkActive="active" class="nav-link">Royalty Distribution</a>                  
             </li>
             <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
-              <a routerLink="/royaltypayout" routerLinkActive="active" class="nav-link">Roylty Payout</a>                  
+              <a routerLink="/royaltypayout" routerLinkActive="active" class="nav-link">Royalty Payout</a>                  
+            </li>
+            <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+              <a routerLink="/royaltyreport" routerLinkActive="active" class="nav-link">Royalty Report</a>                  
             </li>
             <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
               <a routerLink="/subjects" routerLinkActive="active" class="nav-link">Subjects</a>
