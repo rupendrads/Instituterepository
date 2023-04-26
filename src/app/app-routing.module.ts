@@ -15,11 +15,8 @@ import { NewSubjectComponent } from './subject/new-subject/new-subject.component
 import { SubjectEditComponent } from './subject/subject-edit/subject-edit.component';
 import { SubjectListComponent } from './subject/subject-list/subject-list.component';
 import { RoyaltyPayoutComponent } from './royaltypayout/new-royalty-payout/new-royalty-payout.component';
-<<<<<<< HEAD
 import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-distribution/new-royalty-distribution.component';
-=======
 import { RoyaltyReportComponent } from './royaltyreport/royalty-report/royalty-report.component';
->>>>>>> 6a37fe04c8e9d538ca068dabd070c54a2f96b286
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent},

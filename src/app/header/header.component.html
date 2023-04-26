@@ -1,71 +1,14 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-header">
-  <div class="container-fluid navbar-container">
-    <a class="navbar-brand" href="#">
-      <img src="../../assets/Images/gold-round-logo.png" alt="" width="32" height="32" class="img">Oxford
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems" aria-controls="navbarItems" aria-label="Toggle navigation" (click)="navbarCollapsed = !navbarCollapsed">
-      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-      </svg>
-    </button>         
-        <ul class="nav">
-          <!-- <div class="slider"></div> -->
-            <li class="nav-item" >
-              <a routerLink="/" routerLinkActive="active" class="nav-link active" aria-current="page"><label for="home"><i class="bi bi-house-fill"></i>Home</label></a>
-            </li>                
-            <li class="nav-item"  *ngIf="isUserLoggedIn==true">
-              <a routerLink="/admission" routerLinkActive="active" class="nav-link"><label for="adform"><i class="bi bi-info-square"></i>Admi. Form</label></a>
-            </li>
-            <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
-              <a routerLink="/courses" routerLinkActive="active" class="nav-link"><label for="courses"><i class="bi bi-basket-fill"></i>Courses</label></a>
-            </li>
-            <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
-              <a routerLink="/royaltydistribution" routerLinkActive="active" class="nav-link"><label for="royaltydist"><i class="bi bi-cash-coin"></i>Roylty Dist.</label></a>                  
-            </li>
-            <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
-              <a routerLink="/royaltypayout" routerLinkActive="active" class="nav-link"><label for="royaltypay"><i class="bi bi-currency-rupee"></i>Roylty Payout</label></a>                  
-            </li>
-            <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
-              <a routerLink="/subjects" routerLinkActive="active" class="nav-link"><label for="subjects"><i class="bi bi-bag-check-fill"></i>Subjects</label></a>
-            </li>
-            <li class="nav-item" *ngIf="isUserLoggedIn==true">
-              <a [routerLink]="['/profile', loggedInUserId]" routerLinkActive="active" class="nav-link"><label for="updateprof"><i class="bi bi-journal-arrow-up"></i>Update Profile</label></a>
-            </li>                
-            <li class="nav-item" *ngIf="isUserLoggedIn==true">
-              <a routerLink="/aboutus" routerLinkActive="active" class="nav-link"><label for="aboutus"><i class="bi bi-file-person-fill"></i>About Us</label></a>
-            </li>
-            <li class="nav-item" *ngIf="isUserLoggedIn==true">
-                <a routerLink="/contactus" routerLinkActive="active" class="nav-link"><label for="contactus"><i class="bi bi-envelope-at"></i>Contact Us</label></a>
-            </li>
-       
-            <li class="nav-item">
-              <a routerLink="/signin" routerLinkActive="active" class="nav-link" *ngIf="isUserLoggedIn==false"><label for="signin">
-                <i class="bi bi-person-check"></i>
-                SignIn
-              </label></a>
-              <a routerLink="" (click)="signOut()" class="nav-link" *ngIf="isUserLoggedIn==true">
-                <label for="signout">
-                  <i class="bi bi-person-x"></i>
-                  SignOut
-              </label></a>
-            </li>
-        </ul>
-  </div>
-</nav>
-
-
-<!-- -- -------------------------------------------------------------------------->
-<!-- Old Header Navbar Code-->
-
-<!-- <nav class="navbar navbar-light navbar-expand-md navbar-header">
+<nav class="navbar navbar-light navbar-expand-md navbar-header">
   <div class="container navbar-container">
     <a class="navbar-brand" href="#">
       <img src="../../assets/Images/OxfordUniv.jpg" alt="" width="40" height="40" class="d-inline-block align-text-top">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems" aria-controls="navbarItems" aria-label="Toggle navigation" (click)="navbarCollapsed = !navbarCollapsed">
-      <span class="navbar-toggler-icon"></span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+      </svg>
     </button>
-                          
+                        
     <div class="collapse navbar-collapse" tabindex="-1" id="navbarItems">            
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -113,4 +56,4 @@
         </div>
     </div>
   </div>
-</nav> -->
+</nav>

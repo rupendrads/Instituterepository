@@ -26,12 +26,10 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
 import { RoyaltyPayoutComponent } from './royaltypayout/new-royalty-payout/new-royalty-payout.component';
 import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-distribution/new-royalty-distribution.component';
 import { ContentDialogComponent } from './content-dialog/content-dialog.component';
-<<<<<<< HEAD
 import { AboutUsComponent } from './aboutus/aboutus.component';
 import { ContactUsComponent } from './contactus/contactus.component';
-=======
 import { RoyaltyReportComponent } from './royaltyreport/royalty-report/royalty-report.component';
->>>>>>> 6a37fe04c8e9d538ca068dabd070c54a2f96b286
+import { SideMenubarComponent } from './header/side-menubar/side-menubar.component';
 
 @NgModule({
   declarations: [    
@@ -57,7 +55,8 @@ import { RoyaltyReportComponent } from './royaltyreport/royalty-report/royalty-r
     SubjectListComponent,
     ConfirmDialogComponent,
     MessageDialogComponent,
-    ContentDialogComponent
+    ContentDialogComponent,
+    SideMenubarComponent
   ],
   imports: [
     BrowserModule,
