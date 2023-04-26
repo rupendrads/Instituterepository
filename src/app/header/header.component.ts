@@ -7,7 +7,7 @@ import { AuthService } from '../authentication/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  navbarCollapsed: boolean = false;
+  navbarCollapsed: boolean = true;
   isUserLoggedIn:boolean = false;
   loggedInUserName:string|undefined = undefined;
   loggedInUserId:string|undefined = undefined;

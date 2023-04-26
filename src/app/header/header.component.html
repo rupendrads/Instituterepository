@@ -1,14 +1,12 @@
-<nav class="navbar navbar-light navbar-expand-md navbar-header">
-  <div class="container navbar-container">
+<nav class="navbar navbar-light navbar-expand-md navbar--header">
+  <div class="container navbar-header">
     <a class="navbar-brand" href="#">
       <img src="../../assets/Images/OxfordUniv.jpg" alt="" width="40" height="40" class="d-inline-block align-text-top">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems" aria-controls="navbarItems" aria-label="Toggle navigation" (click)="navbarCollapsed = !navbarCollapsed">
-      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-      </svg>
+      <span class="navbar-toggler-icon"></span>
     </button>
-                        
+                          
     <div class="collapse navbar-collapse" tabindex="-1" id="navbarItems">            
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -36,10 +34,10 @@
               <a [routerLink]="['/profile', loggedInUserId]" routerLinkActive="active" class="nav-link">Update Profile</a>
             </li>                
             <li class="nav-item">
-              <a class="nav-link" href="#">About us</a>
+              <a routerLink="/aboutus" routerLinkActive="active" class="nav-link">About us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact us</a>
+                <a routerLink="/contactus" routerLinkActive="active" class="nav-link">Contact us</a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -48,6 +46,7 @@
               <a routerLink="" (click)="signOut()" class="nav-link" *ngIf="isUserLoggedIn==true">Sign Out</a>
             </li>
         </ul>
+        <!-- icon -->
         <div *ngIf="isUserLoggedIn==true">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6abd79" class="bi bi-person-circle" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -57,3 +56,4 @@
     </div>
   </div>
 </nav>
+
