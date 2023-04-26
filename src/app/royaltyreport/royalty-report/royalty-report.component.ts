@@ -17,18 +17,22 @@ export class RoyaltyReportComponent implements OnInit {
 
     ngOnInit(): void {        
         this.getRoyaltyPayoutDates();
-        this.getPayoutRoyalties();
     }
 
     onPayoutDateChanged(event: any):void {
-        //this.selectedInstitute = event.target.value;
+        console.log(event.target.value);
+        this.getPayoutRoyalties(event.target.value);
     };
 
     getRoyaltyPayoutDates(){
         this.royaltyReportService.getRoyaltyPayoutDates()?.subscribe({
             next: (result: any) => {
               console.log(result);              
-              this.payoutDates = result; 
+              this.payoutDates = result;
+              for(let i=0;i<this.payoutDates.length; i++){                
+                this.payoutDates[i] = new Date(this.payoutDates[i]).toDateString();  
+                console.log(this.payoutDates[i]);            
+              }
               const distinctDates = [... new Set(this.payoutDates)];
               console.log(distinctDates);
               this.payoutDates = [...distinctDates];              
@@ -38,8 +42,8 @@ export class RoyaltyReportComponent implements OnInit {
         });
     }
 
-    getPayoutRoyalties(){
-        this.royaltyReportService.getRoyaltyPayouts()?.subscribe({
+    getPayoutRoyalties(payoutDate: any){
+        this.royaltyReportService.getRoyaltyPayouts(payoutDate)?.subscribe({
             next: (result: any) => {
               console.log(result);              
               this.royaltyDistributions = result;

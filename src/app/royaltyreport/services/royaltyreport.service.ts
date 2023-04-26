@@ -17,10 +17,10 @@ export class RoyaltyReportService {
         return undefined;
     }
 
-    getRoyaltyPayouts() {
+    getRoyaltyPayouts(payoutDate: any) {
         console.log(this.authService.loggedInUserInstituteId);
         if(this.authService.loggedInUserInstituteId !== undefined){
-            return this.http.get(`${environment.host}/api/RoyaltyReport?instituteId=${this.authService.loggedInUserInstituteId}`);
+            return this.http.get(`${environment.host}/api/RoyaltyReport?instituteId=${this.authService.loggedInUserInstituteId}&payoutDate=${payoutDate}`);
         }
         return undefined;
     }
