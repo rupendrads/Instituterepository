@@ -27,7 +27,8 @@ export class AuthService {
             this.loggedInUserId = result.loggedIn == true ? result.userId : undefined; 
             this.loggedInUserType = result.loggedIn == true ? result.userType : undefined; 
             this.loggedInUserInstituteId = result.loggedIn == true ? result.instituteId : undefined;   
-            console.log(this.loggedInUserInstituteId);    
+            console.log(this.loggedInUserInstituteId);
+            this.setSession(result.loggedIn == true ? result.token.token : undefined);    
             this.userLoggedInSubject.next({isUserLoggedIn: this.isUserLoggedIn, loggedInUserId: this.loggedInUserId, loggedInUserType: this.loggedInUserType});
           },
           error: (e) => console.log(e),
@@ -35,11 +36,15 @@ export class AuthService {
         });   
     }
 
+    private setSession(idToken: any) {
+        localStorage.setItem('id_token', idToken);
+    }          
+
     logout(){
         this.isUserLoggedIn = false;
         this.loggedInUserName = undefined;
         this.loggedInUserId = undefined;
-
+        localStorage.removeItem("id_token");
         this.userLoggedInSubject.next({isUserLoggedIn: this.isUserLoggedIn, loggedInUserId: this.loggedInUserId, loggedInUserType: this.loggedInUserType});
     }
 }

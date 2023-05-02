@@ -29,6 +29,8 @@ import { ContentDialogComponent } from './content-dialog/content-dialog.componen
 import { AboutUsComponent } from './aboutus/aboutus.component';
 import { ContactUsComponent } from './contactus/contactus.component';
 import { RoyaltyReportComponent } from './royaltyreport/royalty-report/royalty-report.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './authentication/services/authInterceptor.service';
 
 @NgModule({
   declarations: [    
@@ -66,7 +68,12 @@ import { RoyaltyReportComponent } from './royaltyreport/royalty-report/royalty-r
     RouterModule
   ],
   exports: [],  
-  providers: [ DatePipe ],
+  providers: [ {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    DatePipe ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

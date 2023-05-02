@@ -17,24 +17,25 @@ import { SubjectListComponent } from './subject/subject-list/subject-list.compon
 import { RoyaltyPayoutComponent } from './royaltypayout/new-royalty-payout/new-royalty-payout.component';
 import { RoyaltyDistributionComponent } from './royaltydistribution/new-royalty-distribution/new-royalty-distribution.component';
 import { RoyaltyReportComponent } from './royaltyreport/royalty-report/royalty-report.component';
+import { AuthGuard } from './authentication/guards/auth.guard';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: 'signin', component: SignInComponent },
     { path: 'aboutus', component: AboutUsComponent},
     { path: 'contactus', component: ContactUsComponent },
-    { path: 'admission', component: NewAdmission },
+    { path: 'admission', canActivate:[AuthGuard], component: NewAdmission },
     { path: 'register', component: NewUserComponent},
-    { path: 'newcourse', component: NewCourseComponent},
-    { path: 'courses', component: CourseListComponent},
-    { path: 'editcourse/:id', component: CourseEditComponent},
-    { path: 'newsubject', component: NewSubjectComponent},
-    { path: 'subjects', component: SubjectListComponent},
-    { path: 'editsubject/:id', component: SubjectEditComponent},
-    { path: 'profile/:id', component: EditUserComponent },
-    { path: 'royaltydistribution', component: RoyaltyDistributionComponent},
-    { path: 'royaltypayout', component: RoyaltyPayoutComponent},
-    { path: 'royaltyreport', component: RoyaltyReportComponent},
+    { path: 'newcourse', canActivate:[AuthGuard], component: NewCourseComponent},
+    { path: 'courses', canActivate:[AuthGuard], component: CourseListComponent},
+    { path: 'editcourse/:id', canActivate:[AuthGuard], component: CourseEditComponent},
+    { path: 'newsubject', canActivate:[AuthGuard], component: NewSubjectComponent},
+    { path: 'subjects', canActivate:[AuthGuard], component: SubjectListComponent},
+    { path: 'editsubject/:id', canActivate:[AuthGuard], component: SubjectEditComponent},
+    { path: 'profile/:id', canActivate:[AuthGuard], component: EditUserComponent },
+    { path: 'royaltydistribution', canActivate:[AuthGuard], component: RoyaltyDistributionComponent},
+    { path: 'royaltypayout', canActivate:[AuthGuard], component: RoyaltyPayoutComponent},
+    { path: 'royaltyreport', canActivate:[AuthGuard], component: RoyaltyReportComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 
