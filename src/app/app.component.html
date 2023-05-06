@@ -1,11 +1,11 @@
-<div>
-  <header>
-    <app-header></app-header>
-  </header>
+<div class="container-fluid  g-0" style="padding-left: 0px;padding-right: 0px;margin-left: 0px;margin-right: 0px;">
+    <app-header (sideNavToggled)="sideNavStatus = $event;"></app-header>
   <div class="with-header" >    
     <main class="register" >
+      <div class="side-bar">
+        <side-menubar [sideNavStatus]="sideNavStatus" [ngClass]="{'side-menubar-open': sideNavStatus}"></side-menubar>
+      </div>
       <router-outlet></router-outlet>
-      <!-- <side-menubar></side-menubar> -->
     </main>
   </div>  
 </div>

@@ -1,0 +1,37 @@
+<div class="container" id="container">
+		<ul class="nav-list" [ngClass]="{'nav-list-open': sideNavStatus}">
+			<li class="nav-list-item">
+				<a routerLink="/"><span>Home</span><i class="bi bi-house-fill"></i></a>
+			</li>
+			<li class="nav-list-item" *ngIf="isUserLoggedIn==true">
+				<a routerLink="/admission"><span>Admission Form</span><i class="bi bi-info-square"></i></a>
+			</li>
+			<li class="nav-list-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+				<a routerLink="/courses"><span>Courses</span><i class="bi bi-basket-fill"></i></a>
+			</li>
+			<li class="nav-list-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+				<a routerLink="/royaltydistribution"><span>Royalty Distribution</span><i class="bi bi-cash-coin"></i></a>
+			</li>
+			<li class="nav-list-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+				<a routerLink="/royaltypayout"><span>Royalty Payout</span><i class="bi bi-currency-rupee"></i></a>
+			</li>
+			<li class="nav-list-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+				<a routerLink="/subjects"><span>Subjects</span><i class="bi bi-bag-check-fill"></i></a>
+			</li>
+			<li class="nav-list-item" *ngIf="isUserLoggedIn==true">
+				<a [routerLink]="['/profile', loggedInUserId]"><span>Update Profile</span><i class="bi bi-journal-arrow-up"></i></a>
+			</li>
+			<li class="nav-list-item" *ngIf="isUserLoggedIn==true">
+				<a routerLink="/aboutus"><span>About Us</span><i class="bi bi-file-person-fill"></i></a>
+			</li>
+			<li class="nav-list-item" *ngIf="isUserLoggedIn==true">
+				<a routerLink="/contactus"><span>Contact Us</span><i class="bi bi-envelope-at"></i></a>
+			</li>
+			<li class="nav-list-item">
+				<a routerLink="/signin" *ngIf="isUserLoggedIn==false"><span>SignIn</span><i class="bi bi-person-check"></i>
+				</a>
+				<a routerLink="" (click)="signOut()" *ngIf="isUserLoggedIn==true"><span>SignOut</span><i class="bi bi-person-x"></i>
+				</a>
+			</li>
+		</ul>
+</div>

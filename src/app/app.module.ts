@@ -29,6 +29,7 @@ import { ContentDialogComponent } from './content-dialog/content-dialog.componen
 import { AboutUsComponent } from './aboutus/aboutus.component';
 import { ContactUsComponent } from './contactus/contactus.component';
 import { RoyaltyReportComponent } from './royaltyreport/royalty-report/royalty-report.component';
+import { SideMenubarComponent } from './header/side-menubar/side-menubar.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './authentication/services/authInterceptor.service';
 
@@ -56,7 +57,8 @@ import { AuthInterceptor } from './authentication/services/authInterceptor.servi
     SubjectListComponent,
     ConfirmDialogComponent,
     MessageDialogComponent,
-    ContentDialogComponent
+    ContentDialogComponent,
+    SideMenubarComponent
   ],
   imports: [
     BrowserModule,

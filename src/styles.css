@@ -9,7 +9,6 @@ body {
     background-color: #fbfbfb;
     min-height: 100vh;
 }
-
 .with-header {
   margin-top: 0rem;
   margin-bottom: 40px;
@@ -25,6 +24,8 @@ body {
   border-radius: 10px;
 }
 
+
+
 .field-label-div {
   /* border:1px solid blue; */
   display: flex;
@@ -37,6 +38,7 @@ body {
   align-items: center;
 }
 
+
 .col-form-label {
   text-align: right;
   white-space: nowrap;
@@ -47,8 +49,6 @@ body {
   flex-direction: row;
   justify-content: center;  
 }
-
-
 
 .entry-form > div >* {
     margin-top: 10px;    
@@ -65,7 +65,8 @@ body {
 
 body, input[type="text"], button {
     color: #333;
-  }
+}
+
   button {
     background-color: #eee;
     border: none;
@@ -87,8 +88,8 @@ body, input[type="text"], button {
   }
 
   .title {
-    text-align: center;
-}
+      text-align: center;
+  }
 
   .page-title {
       font-size: 1rem;

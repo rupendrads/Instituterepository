@@ -1,24 +1,25 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AuthService } from '../authentication/services/auth.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from 'src/app/authentication/services/auth.service'; 
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'side-menubar',
+  templateUrl: './side-menubar.component.html',
+  styleUrls: ['./side-menubar.component.css']
 })
-export class HeaderComponent implements OnInit {
-  @Output() sideNavToggled = new EventEmitter<boolean>();
-  menuStatus: boolean = false;
+export class SideMenubarComponent implements OnInit {
+  
+  @Input() sideNavStatus: boolean = false;
 
   isUserLoggedIn:boolean = false;
   loggedInUserName:string|undefined = undefined;
   loggedInUserId:string|undefined = undefined;
   loggedInUserType: string|undefined = undefined;
 
-  constructor(private authService:AuthService){        
-  }
+  constructor(private authService:AuthService) { }
 
   ngOnInit(){
+
+    
     this.authService.userLoggedInSubject.subscribe({
       next: (result: any) => {
         console.log(result);
@@ -32,12 +33,9 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  signOut(){
-    this.authService.logout();
-  }
+    signOut(){
+      this.authService.logout();
+    }
 
-  sideNavToggle() {
-    this.menuStatus = !this.menuStatus;
-    this.sideNavToggled.emit(this.menuStatus);
-  }
 }
+

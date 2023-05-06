@@ -1,4 +1,66 @@
-<nav class="navbar navbar-light navbar-expand-md navbar--header">
+<nav class="navbar navbar-expand-sm navbar-expand-md navbar-expand-lg navbar-expand-xl navbar-expand-xxl bg-body-tertiary navbar-header">
+  <div class="container-fluid  navbar-container">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/Images/logo.jpeg" alt="" width="32" height="24" class="img">Oxford
+    </a>
+    
+    <div class="navbar-collapse collapse">
+      <ul class="navbar-nav me-auto order-0 ">
+          <li class="nav-item" >
+            <a routerLink="/" routerLinkActive="active" class="nav-link active" aria-current="page"><label for="home"><i class="bi bi-house-fill"></i>Home</label></a>
+          </li>                
+          <li class="nav-item"  *ngIf="isUserLoggedIn==true">
+            <a routerLink="/admission" routerLinkActive="active" class="nav-link"><label for="adform"><i class="bi bi-info-square"></i>Admi. Form</label></a>
+          </li>
+          <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+            <a routerLink="/courses" routerLinkActive="active" class="nav-link"><label for="courses"><i class="bi bi-basket-fill"></i>Courses</label></a>
+          </li>
+          <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+            <a routerLink="/royaltydistribution" routerLinkActive="active" class="nav-link"><label for="royaltydist"><i class="bi bi-cash-coin"></i>Roylty Dist.</label></a>                  
+          </li>
+          <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+            <a routerLink="/royaltypayout" routerLinkActive="active" class="nav-link"><label for="royaltypay"><i class="bi bi-currency-rupee"></i>Roylty Payout</label></a>                  
+          </li>
+          <li class="nav-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+            <a routerLink="/subjects" routerLinkActive="active" class="nav-link"><label for="subjects"><i class="bi bi-bag-check-fill"></i>Subjects</label></a>
+          </li>
+          <li class="nav-item" *ngIf="isUserLoggedIn==true">
+            <a [routerLink]="['/profile', loggedInUserId]" routerLinkActive="active" class="nav-link"><label for="updateprof"><i class="bi bi-journal-arrow-up"></i>Update Profile</label></a>
+          </li>                
+          <li class="nav-item" *ngIf="isUserLoggedIn==true">
+            <a routerLink="/aboutus" routerLinkActive="active" class="nav-link"><label for="aboutus"><i class="bi bi-file-person-fill"></i>About Us</label></a>
+          </li>
+          <li class="nav-item" *ngIf="isUserLoggedIn==true">
+              <a routerLink="/contactus" routerLinkActive="active" class="nav-link"><label for="contactus"><i class="bi bi-envelope-at"></i>Contact Us</label></a>
+          </li>
+    
+          <li class="nav-item">
+            <a routerLink="/signin" routerLinkActive="active" class="nav-link" *ngIf="isUserLoggedIn==false"><label for="signin">
+              <i class="bi bi-person-check"></i>
+              SignIn
+            </label></a>
+            <a routerLink="" (click)="signOut()" class="nav-link" *ngIf="isUserLoggedIn==true">
+              <label for="signout">
+                <i class="bi bi-person-x"></i>
+                SignOut
+            </label></a>
+          </li>
+      </ul>
+    </div>
+
+    <div class="ms-auto">
+      <button class="navbar-toggler p-1 mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems" aria-controls="navbarItems" aria-label="Toggle navigation" (click)="sideNavToggle()">
+        <i class="bi bi-list"></i>
+      </button> 
+    </div>
+  </div>
+</nav>
+
+<!-- -- -------------------------------------------------------------------------->
+<!-- Old Header Navbar Code-->
+
+
+<!-- <nav class="navbar navbar-light navbar-expand-md navbar--header">
   <div class="container navbar-header">
     <a class="navbar-brand" href="#">
       <img src="../../assets/Images/OxfordUniv.jpg" alt="" width="40" height="40" class="d-inline-block align-text-top">
@@ -46,7 +108,7 @@
               <a routerLink="" (click)="signOut()" class="nav-link" *ngIf="isUserLoggedIn==true">Sign Out</a>
             </li>
         </ul>
-        <!-- icon -->
+         icon
         <div *ngIf="isUserLoggedIn==true">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6abd79" class="bi bi-person-circle" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -56,4 +118,4 @@
     </div>
   </div>
 </nav>
-
+ -->
