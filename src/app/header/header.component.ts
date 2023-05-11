@@ -7,8 +7,11 @@ import { AuthService } from '../authentication/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  
   @Output() sideNavToggled = new EventEmitter<boolean>();
   menuStatus: boolean = false;
+  subnavStatus: boolean = false;
+  
 
   isUserLoggedIn:boolean = false;
   loggedInUserName:string|undefined = undefined;
@@ -39,5 +42,10 @@ export class HeaderComponent implements OnInit {
   sideNavToggle() {
     this.menuStatus = !this.menuStatus;
     this.sideNavToggled.emit(this.menuStatus);
+  }
+
+  subnavbarToggle() {
+    this.subnavStatus = !this.subnavStatus;
+    
   }
 }

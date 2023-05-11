@@ -1,10 +1,12 @@
 app-header {
     position: fixed;
-    width: 99%;
+    width: 100vw;
+    height: 110px;
+    padding:1px 1px;
+    margin: 1px 1px;
+    left: 0px;
     top: 0px;
-    height: 58px;
     z-index: 2;
-    padding:5px;
 }
 
 .with-header {
@@ -15,7 +17,7 @@ app-header {
 .register {
     position: absolute;
     width: 100%;
-    top: 68px;
+    top: 75px;
     padding-top: 0rem;
     padding-bottom: 0rem;
 
@@ -24,7 +26,7 @@ app-header {
 side-menubar {
     position: fixed;
     right: 0rem;
-    top: 70px;
+    top: 125px;
     width: 0px;
     height: 100vh;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
