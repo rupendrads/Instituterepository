@@ -5,9 +5,9 @@ import { CourseService } from '../services/course.service';
 import { MessageDialogService } from 'src/app/message-dialog/message-dialog.service'; 
 
 import { Course, iSubject }from '../models/course.model';
-import { iInstitute } from '../../institute/models/institute.model';
-import { institutes } from '../../institute/services/data';
 import { subjects } from '../services/data';
+import { AuthService } from 'src/app/authentication/services/auth.service';
+import { InstituteService } from 'src/app/institute/services/institute.service';
 
 @Component({
     selector: 'new-course',
@@ -17,8 +17,8 @@ import { subjects } from '../services/data';
   export class NewCourseComponent implements OnInit {
     @ViewChild('myForm') form!: NgForm;
                
-    institutes: iInstitute[] = [];
-    selectedInstitute: string = '';
+    instituteId: number|undefined;
+    instituteName:string = "";
     
     subjects: iSubject[] = [];    
     selectedSubject: iSubject|any;
@@ -27,18 +27,27 @@ import { subjects } from '../services/data';
     royaltyTypes: string[] = [];
     royaltyType:string|undefined = undefined;
           
-    constructor(private courseService: CourseService, private messageDialogService: MessageDialogService, private route: ActivatedRoute, private router:Router) {       
+    constructor(private courseService: CourseService, private messageDialogService: MessageDialogService, 
+      private route: ActivatedRoute, private router:Router,
+      private authService: AuthService, private instituteService: InstituteService) {       
         this.royaltyTypes = ["Percentage", "Amount"];
+        this.instituteId = this.authService.loggedInUserInstituteId;
     }
     
    ngOnInit(){
-       this.institutes = [...institutes];  
+      if(this.instituteId!== undefined){
+         this.instituteService.getInstitute(this.instituteId).subscribe({
+           next: (result:any) => {
+             console.log(result);
+             this.instituteName = result.name;
+           },
+           error: (e) => console.log(e),
+           complete: () => console.log("completed")
+         });
+       }
+
        this.subjects = [...subjects];   
    }
-      
-   onInstituteChanged(event: any):void {
-      this.selectedInstitute = event.target.value;
-   };
           
    onAddSubject() {
       if(this.selectedSubject!== undefined && !this.selectedSubjects.includes(this.selectedSubject)){          
@@ -61,31 +70,33 @@ import { subjects } from '../services/data';
       this.royaltyType = event.target.value;
    }
 
-   onSubmit() {      
-		const course = new Course(
-			this.form.value.courseId,
-			this.form.value.coursename,
-			+this.selectedInstitute,
-			this.form.value.courseduration,
-			this.form.value.coursefee,
-			this.royaltyType,
-			this.form.value.royaltyvalue,
-			this.selectedSubjects
-			);
-			console.log(course);
+   onSubmit() {     
+      if(this.instituteId){ 
+         const course = new Course(
+            this.form.value.courseId,
+            this.form.value.coursename,
+            this.instituteId,
+            this.form.value.courseduration,
+            this.form.value.coursefee,
+            this.royaltyType,
+            this.form.value.royaltyvalue,
+            this.selectedSubjects
+            );
+            console.log(course);
 
-		this.messageDialogService.okThis("New Course Added !",  () => {
+         this.messageDialogService.okThis("New Course Added !",  () => {
 
-        	this.courseService.addCourse(course).subscribe({
-				next: (result) => {
-					console.log(result);
-					this.router.navigateByUrl('/courses');
-				},
-				error: (e) => console.error(e),
-				complete: () => console.info('complete') 
-			});
-				console.log(`Ok Clicked`);  
-      })
+            this.courseService.addCourse(course).subscribe({
+               next: (result) => {
+                  console.log(result);
+                  this.router.navigateByUrl('/courses');
+               },
+               error: (e) => console.error(e),
+               complete: () => console.info('complete') 
+            });
+               console.log(`Ok Clicked`);  
+         });
+      }
    }  
 }
 
