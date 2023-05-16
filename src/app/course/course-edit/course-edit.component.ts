@@ -2,12 +2,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../services/course.service';
+import { SubjectService } from 'src/app/subject/services/subject.service';
 import { ConfirmDialogService } from 'src/app/confirm-dialog/confirm-dialog.service';
 
 import { iCourse, iSubject } from '../models/course.model';
 import { iInstitute } from '../../institute/models/institute.model';
+import { AuthService } from 'src/app/authentication/services/auth.service';
+import { InstituteService } from 'src/app/institute/services/institute.service';
 import { institutes } from '../../institute/services/data';
-import { subjects } from '../services/data';
 
 @Component({
 	selector: 'editcourse',
@@ -37,10 +39,14 @@ export class CourseEditComponent implements OnInit {
   constructor(
 		private route: ActivatedRoute,
 		private courseService: CourseService,
+		private subjectService: SubjectService,
 		private confirmDialogService: ConfirmDialogService,
-		private router: Router
+		private router: Router,
+		private authService: AuthService, 
+      private instituteService: InstituteService
   ) {
     	this.royaltyTypes = ['Percentage', 'Amount'];
+		 this.instituteId = this.authService.loggedInUserInstituteId!;
   }
 
   ngOnInit(): void {
@@ -51,9 +57,9 @@ export class CourseEditComponent implements OnInit {
 			const courseId = this.route.snapshot.paramMap.get('id');
 
 			this.institutes = [...institutes];
-			this.subjects = [...subjects];
+			this.getSubjectList(this.instituteId);
 
-			if (courseId != null) {
+			if (courseId != null) {	
 			this.course = {
 				courseId: +courseId,
 				courseName: '',
@@ -108,6 +114,18 @@ export class CourseEditComponent implements OnInit {
 		onChangeRoyaltyType(event: any) {
 			console.log(event.target.value);
 			this.royaltyType = event.target.value;
+		}
+
+		getSubjectList(instituteId:number) :void {
+			this.subjectService.getSubjects(instituteId).subscribe({
+				next: (result: any) => {
+					console.log(result);
+					this.subjects = result;
+					console.log(this.subjects);          
+				},
+				error: (e) => console.log(e),
+				complete: () => console.log("Complete")
+			});
 		}
 
     

@@ -2,10 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms'; 
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../services/course.service';
+import { SubjectService } from 'src/app/subject/services/subject.service';
 import { MessageDialogService } from 'src/app/message-dialog/message-dialog.service'; 
 
 import { Course, iSubject }from '../models/course.model';
-import { subjects } from '../services/data';
 import { AuthService } from 'src/app/authentication/services/auth.service';
 import { InstituteService } from 'src/app/institute/services/institute.service';
 
@@ -17,7 +17,7 @@ import { InstituteService } from 'src/app/institute/services/institute.service';
   export class NewCourseComponent implements OnInit {
     @ViewChild('myForm') form!: NgForm;
                
-    instituteId: number|undefined;
+    instituteId: number;
     instituteName:string = "";
     
     subjects: iSubject[] = [];    
@@ -27,15 +27,19 @@ import { InstituteService } from 'src/app/institute/services/institute.service';
     royaltyTypes: string[] = [];
     royaltyType:string|undefined = undefined;
           
-    constructor(private courseService: CourseService, private messageDialogService: MessageDialogService, 
+    constructor(private courseService: CourseService,
+      private subjectService: SubjectService, 
+      private messageDialogService: MessageDialogService, 
       private route: ActivatedRoute, private router:Router,
-      private authService: AuthService, private instituteService: InstituteService) {       
+      private authService: AuthService, 
+      private instituteService: InstituteService) {       
         this.royaltyTypes = ["Percentage", "Amount"];
-        this.instituteId = this.authService.loggedInUserInstituteId;
+        this.instituteId = this.authService.loggedInUserInstituteId!;
     }
     
-   ngOnInit(){
+   ngOnInit(): void {
       if(this.instituteId!== undefined){
+         
          this.instituteService.getInstitute(this.instituteId).subscribe({
            next: (result:any) => {
              console.log(result);
@@ -45,9 +49,9 @@ import { InstituteService } from 'src/app/institute/services/institute.service';
            complete: () => console.log("completed")
          });
        }
-
-       this.subjects = [...subjects];   
+         this.getSubjectList(this.instituteId);    
    }
+
           
    onAddSubject() {
       if(this.selectedSubject!== undefined && !this.selectedSubjects.includes(this.selectedSubject)){          
@@ -69,6 +73,18 @@ import { InstituteService } from 'src/app/institute/services/institute.service';
       console.log(event.target.value);
       this.royaltyType = event.target.value;
    }
+
+   getSubjectList(instituteId:number) :void {
+		this.subjectService.getSubjects(instituteId).subscribe({
+			next: (result: any) => {
+				console.log(result);
+				this.subjects = result;
+				console.log(this.subjects);          
+			},
+			error: (e) => console.log(e),
+			complete: () => console.log("Complete")
+		});
+	}
 
    onSubmit() {     
       if(this.instituteId){ 
