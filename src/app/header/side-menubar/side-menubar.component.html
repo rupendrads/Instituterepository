@@ -16,6 +16,9 @@
 				<a routerLink="/royaltypayout"><span>Royalty Payout</span><i class="bi bi-currency-rupee"></i></a>
 			</li>
 			<li class="nav-list-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
+				<a routerLink="/royaltyreport"><span>Royalty Report</span><i class="bi bi-file-earmark-spreadsheet"></i></a>
+			</li>
+			<li class="nav-list-item" *ngIf="isUserLoggedIn==true && loggedInUserType=='Admin'">
 				<a routerLink="/subjects"><span>Subjects</span><i class="bi bi-bag-check-fill"></i></a>
 			</li>
 			<li class="nav-list-item" *ngIf="isUserLoggedIn==true">
