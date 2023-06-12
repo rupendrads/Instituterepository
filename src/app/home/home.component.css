@@ -1,4 +1,6 @@
-    .section-biodata {
+    /* Biodata code starts*/
+
+    /* .section-biodata {
       padding: 0px 20px;
     }
 
@@ -7,6 +9,15 @@
       height: 100vh;
       margin: 5px 10px;
       padding: 0px 10px;
+    } */
+
+    /* Biodata code ends*/
+
+    /* Buttons code starts*/
+
+    .section-buttons {
+      width: 100%;
+      height: 100vh;
     }
 
     .button-col {
@@ -110,20 +121,25 @@
     
 @media (min-width: 769px) {
 
-  .biodata-container {
+  .section-cards {
     display: unset;
     /* visibility: visible; */
   }
   .button-container {
     display: none;
     /* visibility: hidden; */
+  }
+  .section-buttons {
+    display: none;
+    width: 100%;
+    height: 100vh;
   }
 }
   
 
 @media (max-width: 768px) {
 
-  .biodata-container {
+  .section-cards {
     display: none;
     /* visibility: hidden; */
   }
@@ -131,7 +147,129 @@
     display: unset;
     /* visibility: visible; */
   }
+  .section-buttons {
+    width: 100%;
+    height: 160vh;
+  }
 }
+
+/* Buttons code ends*/
+
+/* Carousel code starts*/
+/* 
+.carousel-inner {
+  width: 100%;
+  height: 100vh;
+}
+
+.carousel-item {
+  height: 100%;
+  background: #000;
+  color: #fff;
+  position: relative;
+  
+}
+
+
+.container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 50px;
+}
+
+.overlay-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
+
+} */
+
+/* Carousel code ends*/
+
+/* Cards code starts*/
+
+  .section-cards {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(170,207,171,1) 0%, rgba(242,252,243,1) 50%, rgba(255,255,255,1) 100%);
+    margin-top: 50px;
+    padding-top: 60px;
+  }
+
+  .cards-container {
+    position: relative;
+    width: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    /* background-color: #fff; */
+  }
+
+  .cards-container .card {
+    position: relative;
+    max-width: 300px;
+    height: 215px;
+    background-color: #fff;
+    margin: 70px 15px;
+    padding: 20px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+  }
+
+  .cards-container .card:hover {
+    height: 420px;
+  }
+
+  .cards-container .card .imgBox {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    top: -60px;
+    left: 0px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  } 
+
+  .cards-container .card .imgBox img {
+    max-width: 100%;
+    border-radius: 4px;
+  }
+
+  .cards-container .card .content {
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+  }
+
+  .cards-container .card:hover .content {
+    visibility: visible;
+    opacity: 1;
+    margin-top: -40px;
+    transition-delay: 0.3s;
+  }
+
+/* Cards code ends*/
 
 
 
