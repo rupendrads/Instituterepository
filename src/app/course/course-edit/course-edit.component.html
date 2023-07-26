@@ -3,35 +3,37 @@
       <div class="col entry-form-col">
          <form (ngSubmit)="onSubmit()" #myForm="ngForm">
             <div ngModelGroup="courseDetail" #courseDetail="ngModelGroup">
-					<div class="form-group row">
+					<div class="form-group row title">
 						<div class="col-md-8 offset-md-4">
 							<h2 class="page-title">Edit Course</h2>
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-md-4 field-label-div">
+						<div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
 							<label class="col-form-label">Institute</label>
 						</div>
-						<div class="col-md-8 field-value-div">
+						<div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
 							<label class="col-form-label">{{instituteName}}</label>
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-md-4 field-label-div">
+						<div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
 							<label class="col-form-label">Course</label>
 						</div>
-						<div class="col-md-8 field-value-div">
-							<input type="text" class="form-control form-control-sm"  name="coursename"  required [(ngModel)] = "course.courseName">
+						<div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
+							<input type="text" class="form-control form-control-sm"  name="coursename"  required [(ngModel)] = "course.courseName" #coursename="ngModel">
 						</div>
+						<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" *ngIf="coursename.invalid && coursename.touched">Course Name is a required field</small>
 					</div>
 					<div class="form-group row">
-						<div class="col-md-4 field-label-div">
+						<div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
 							<label class="col-form-label">Subjects Included</label>
 						</div>
-						<div class="col">
+						<div class="col-xs-6 col-sm-8 col-md-8 col">
 							<div class="row-course">
 								<div class="col-course-div">
-									<select class="form-control form-control-sm" (change)="onChangeSubject($event)">
+									<select class="form-control form-control-sm" (change)="onChangeSubject($event)" #subjectname="ngModel" [(ngModel)]="model.subjectname" name="subjectname"
+									[ngClass]="{'invalid-textbox' : subjectname.touched && subjectname.invalid }">
 										<option [value]="null" hidden>Select Subjects</option>
 											<option name="subjectsname" *ngFor="let subject of subjects" value={{subject.subjectId}}>
 												{{subject.subjectName}}
@@ -59,48 +61,69 @@
 									</div>
 								</div>
 							</div>
+							<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" *ngIf="subjectname.invalid && subjectname.touched">Select required subjects from the list and add</small>
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-md-4 field-label-div">
+						<div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
 							<label class="col-form-label">Course Duration</label>
 						</div>
-						<div class="col-md-6 field-value-div">
-							<input type="text" class="form-control form-control-sm" name="courseduration" required [(ngModel)] = "course.courseDuration" > <span style="padding-left: 10px; padding-right: 10px;">months</span>
-						</div> 
+						<div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
+							<input type="text" class="form-control form-control-sm" name="courseduration" required [(ngModel)] = "course.courseDuration" #courseduration="ngModel"> <span style="padding-left: 10px; padding-right: 10px;">months</span>
+						</div>
+						<ng-container *ngIf="courseduration.invalid && courseduration.touched">
+							<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" >Course Duration is a required field</small>
+						</ng-container>
+						<ng-container *ngIf="!isNumber(numberValue) && courseduration.touched">
+							<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div">Only numbers allowed</small>
+						</ng-container> 
 					</div>
 					<div class="form-group row">
-						<div class="col-md-4 field-label-div">
+						<div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
 							<label class="col-form-label">Course Fee (Rs)</label>
 						</div>
-						<div class="col-md-6 field-value-div">
-							<input type="text" class="form-control form-control-sm" name="coursefee" ngModel required [(ngModel)] = "course.courseFee">
+						<div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
+							<input type="text" class="form-control form-control-sm" name="coursefee" ngModel required [(ngModel)] = "course.courseFee" #coursefee="ngModel">
 						</div>
+						<ng-container *ngIf="coursefee.invalid && coursefee.touched">
+							<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" >Course Fee is a required field</small>
+						</ng-container>
+						<ng-container *ngIf="!isNumber(numberValue) && coursefee.touched">
+							<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div">Only numbers allowed</small>
+						</ng-container>
 					</div>
 					<div class="form-group row">
-						<div class="col-md-4 field-label-div">
+						<div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
 							<label class="col-form-label">Royalty Type</label>
 						</div>
-						<div class="col-md-8 field-value-div">
-							<select class="form-control form-control-sm" (change)="onChangeRoyaltyType($event)" [value]="royaltyType">
+						<div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
+							<select class="form-control form-control-sm" (change)="onChangeRoyaltyType($event)" [value]="royaltyType" #royaltytype="ngModel" [(ngModel)]="model.royaltytype" name="royaltytype"
+							[ngClass]="{'invalid-textbox' : royaltytype.touched && royaltytype.invalid }">
 								<option [value]="null" hidden>Select Royalty Type</option>
 								<option *ngFor="let royaltyType of royaltyTypes" value={{royaltyType}}> 
 									{{royaltyType}}
 								</option>
 							</select>
 						</div>
+						<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" *ngIf="royaltytype.invalid && royaltytype.touched">Select royalty type from the list</small>
 					</div>
 					<div class="form-group row">
-						<div class="col-md-4 field-label-div">
+						<div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
 							<label class="col-form-label">Royalty Value</label>
 						</div>
-						<div class="col-md-5 field-value-div">							
-							<input type="text" class="form-control form-control-sm" name="royaltyvalue" ngModel required [(ngModel)] = "course.royaltyValue" >
+						<div class="col-xs-6 col-sm-8 col-md-8 field-value-div">							
+							<input type="text" class="form-control form-control-sm" name="royaltyvalue" ngModel required [(ngModel)] = "course.royaltyValue" #royaltyvalue="ngModel">
 						</div>
+						<ng-container *ngIf="royaltyvalue.invalid && royaltyvalue.touched">
+							<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" >Royalty Value is a required field</small>
+						</ng-container>
+						<ng-container *ngIf="!isNumber(numberValue) && royaltyvalue.touched">
+							<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div">Only numbers allowed</small>
+						</ng-container>
 					</div>
 					<div class="form-group row">
-						<div class="col-md-8 offset-md-4">
-							<button class="btn btn-primary" type="submit" value="Submit">Update</button>
+						<div class="col-sm-8 offset-sm-4 col-md-8 offset-md-4">
+							<button class="btn btn-primary" type="submit" value="Submit" [disabled]="!myForm.valid">Update</button>
 						</div>
 					</div>
          </form>

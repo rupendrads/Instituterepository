@@ -1,4 +1,4 @@
-.page-title {
+.title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,10 +26,17 @@
     align-items: center;
 }
 
+input.ng-invalid.ng-touched, select.invalid-textbox {
+    border: red 1px solid;
+  }
+
+  small.field-message-div {
+    color: red;
+  }
 
   
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
 
     .field-label-div {
         display: flex;
@@ -42,7 +49,7 @@
     
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
 
     .field-label-div {
         display: flex;

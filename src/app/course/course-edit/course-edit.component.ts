@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../services/course.service';
@@ -18,6 +18,7 @@ import { institutes } from '../../institute/services/data';
 })
 export class CourseEditComponent implements OnInit {
 	@ViewChild('myForm') form!: NgForm;
+	@ViewChild('myTable') tableElement: ElementRef|undefined;
 
 	institutes: iInstitute[] = [];
 	selectedInstitute: string = '';
@@ -35,6 +36,11 @@ export class CourseEditComponent implements OnInit {
 	royaltyTypes: string[] = [];
 	royaltyType: string | undefined = undefined;
 	royaltyValue!: number;
+
+	model: any = {subjectname: '', royaltytype: ''};
+    //defaultRoyaltyValue = '15';
+
+    numberValue!: string;
 
   constructor(
 		private route: ActivatedRoute,
@@ -90,6 +96,10 @@ export class CourseEditComponent implements OnInit {
 			}
 		}
 
+		isNumber(value: string): boolean {
+			return /^[0-9]+$/.test(value);
+		 }
+
 		onAddSubject() {
 			if (
 				this.selectedSubject !== undefined &&
@@ -130,6 +140,14 @@ export class CourseEditComponent implements OnInit {
 
     
    onSubmit() {
+	const tableRows = this.tableElement!.nativeElement.rows;
+
+	if (tableRows.length === 0) {
+		  console.log('Table is empty.');
+		  // Perform your validation logic for an empty table
+	} else if (tableRows.length !== 0){
+	   console.log('Table is not empty.');
+	   // Perform your validation logic for a non-empty table
 
 		this.confirmDialogService.confirmThis("Are you sure to update?",  () => { 
 
@@ -166,5 +184,6 @@ export class CourseEditComponent implements OnInit {
 			console.log(`Cancel Clicked`);  
       }) 
   	}
+}
 }
 

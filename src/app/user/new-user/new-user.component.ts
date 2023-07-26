@@ -14,6 +14,7 @@ import { UserService } from '../services/user.service';
 })
 export class NewUserComponent implements OnInit {
     @ViewChild('myForm') form!: NgForm;
+    
     institueId!: string;
     firstname!: string;
     lastname!: string;
@@ -27,6 +28,7 @@ export class NewUserComponent implements OnInit {
     usertype: string = "User";
     userTypes: string[] = [];
     institutes: iInstitute[] = [];
+    model: any = {institute: ''};
 
     constructor(private userService: UserService, private router: Router) {
       this.userTypes = ["Admin", "User"];

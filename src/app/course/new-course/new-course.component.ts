@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+   import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms'; 
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../services/course.service';
@@ -16,43 +16,53 @@ import { InstituteService } from 'src/app/institute/services/institute.service';
   })
   export class NewCourseComponent implements OnInit {
     @ViewChild('myForm') form!: NgForm;
+    @ViewChild('myTable') tableElement: ElementRef|undefined;
                
     instituteId: number;
     instituteName:string = "";
     
     subjects: iSubject[] = [];    
     selectedSubject: iSubject|any;
-    selectedSubjects: iSubject[] = [];
+    selectedSubjects: iSubject[] = [];    
 
     royaltyTypes: string[] = [];
     royaltyType:string|undefined = undefined;
-          
+
+    model: any = {subjectname: '', royaltytype: ''};
+    //defaultRoyaltyValue = '15';
+
+    numberValue: string = "";
+
+    
     constructor(private courseService: CourseService,
       private subjectService: SubjectService, 
       private messageDialogService: MessageDialogService, 
       private route: ActivatedRoute, private router:Router,
       private authService: AuthService, 
       private instituteService: InstituteService) {       
-        this.royaltyTypes = ["Percentage", "Amount"];
-        this.instituteId = this.authService.loggedInUserInstituteId!;
-    }
-    
-   ngOnInit(): void {
-      if(this.instituteId!== undefined){
-         
-         this.instituteService.getInstitute(this.instituteId).subscribe({
-           next: (result:any) => {
-             console.log(result);
-             this.instituteName = result.name;
-           },
-           error: (e) => console.log(e),
-           complete: () => console.log("completed")
-         });
-       }
+         this.royaltyTypes = ["Percentage", "Amount"];
+         this.instituteId = this.authService.loggedInUserInstituteId!;
+      }
+      
+      ngOnInit(): void {
+         if(this.instituteId!== undefined){
+            
+            this.instituteService.getInstitute(this.instituteId).subscribe({
+               next: (result:any) => {
+                  console.log(result);
+                  this.instituteName = result.name;
+               },
+               error: (e) => console.log(e),
+               complete: () => console.log("completed")
+            });
+         }
          this.getSubjectList(this.instituteId);    
-   }
+      }
 
-          
+   isNumber(value: string): boolean {
+      return /^[0-9]+$/.test(value);
+   }
+      
    onAddSubject() {
       if(this.selectedSubject!== undefined && !this.selectedSubjects.includes(this.selectedSubject)){          
         this.selectedSubjects?.push(this.selectedSubject);
@@ -86,33 +96,43 @@ import { InstituteService } from 'src/app/institute/services/institute.service';
 		});
 	}
 
-   onSubmit() {     
-      if(this.instituteId){ 
-         const course = new Course(
-            this.form.value.courseId,
-            this.form.value.coursename,
-            this.instituteId,
-            this.form.value.courseduration,
-            this.form.value.coursefee,
-            this.royaltyType,
-            this.form.value.royaltyvalue,
-            this.selectedSubjects
-            );
-            console.log(course);
+   onSubmit() {  
+      const tableRows = this.tableElement!.nativeElement.rows;
 
-         this.messageDialogService.okThis("New Course Added !",  () => {
-
-            this.courseService.addCourse(course).subscribe({
-               next: (result) => {
-                  console.log(result);
-                  this.router.navigateByUrl('/courses');
-               },
-               error: (e) => console.error(e),
-               complete: () => console.info('complete') 
-            });
-               console.log(`Ok Clicked`);  
+      if (tableRows.length === 0) {
+            console.log('Table is empty.');
+            // Perform your validation logic for an empty table
+      } else if (tableRows.length !== 0){
+         console.log('Table is not empty.');
+         // Perform your validation logic for a non-empty table
+      
+         if(this.instituteId){ 
+            const course = new Course(
+               this.form.value.courseId,
+               this.form.value.coursename,
+               this.instituteId,
+               this.form.value.courseduration,
+               this.form.value.coursefee,
+               this.royaltyType,
+               this.form.value.royaltyvalue,
+               this.selectedSubjects
+               );
+               console.log(course);
+   
+            this.messageDialogService.okThis("New Course Added !",  () => {
+   
+               this.courseService.addCourse(course).subscribe({
+                  next: (result) => {
+                     console.log(result);
+                     this.router.navigateByUrl('/courses');
+                  },
+                  error: (e) => console.error(e),
+                  complete: () => console.info('complete') 
+               });
+                  console.log(`Ok Clicked`);  
          });
       }
+   }
    }  
 }
 

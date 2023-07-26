@@ -12,24 +12,27 @@
                             <label class="col-form-label">First Name</label>
                         </div>
                         <div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
-                            <input type="text" class="form-control form-control-sm" placeholder="Enter your First Name" name="firstname" ngModel required #fname="ngModel">
+                            <input type="text" class="form-control form-control-sm" placeholder="Enter your First Name" name="firstname" ngModel required #firstname="ngModel">
                         </div>
+								<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" *ngIf="firstname.invalid && firstname.touched">First name is required field</small>
                     </div>
                     <div class="form-group row">
                         <div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
                             <label class="col-form-label">Last Name</label>
                         </div>
                         <div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
-                            <input type="text" class="form-control form-control-sm" placeholder="Enter your Last Name" name="lastname" ngModel required>
+                            <input type="text" class="form-control form-control-sm" placeholder="Enter your Last Name" name="lastname" #lastname="ngModel" ngModel required>
                         </div>
-                    </div>                                                            
+								<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" *ngIf="lastname.invalid && lastname.touched">Last name is required field</small>
+							</div>                                                            
                     <div class="form-group row" style="margin-bottom: 0.5rem;">
                         <div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
                             <label class="col-form-label">Birthdate</label>
                         </div>
                         <div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
-                            <input type="date" class="form-control form-control-sm" id="datepicker" name="birthdate" ngModel required>
+                            <input type="date" class="form-control form-control-sm" id="datepicker" name="birthdate" #birthdate="ngModel" ngModel required>
                         </div>
+								<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" *ngIf="birthdate.invalid && birthdate.touched">Select Birthdate from Date Picker</small>
                     </div>
                     <div class="form-group row" style="margin-bottom: 0.5rem;">
                         <div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
@@ -37,47 +40,54 @@
                         </div>
                         <div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
                             <div class="form-check form-check-inline" >
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="m" ngModel required>
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="m" #gender="ngModel" ngModel required>
                                 <label class="form-label" for="male">
                                 Male
                                 </label>
                             </div>
                             <div class="form-check form-check-inline" >
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="f" ngModel required>
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="f" ngModel #gender="ngModel" required>
                                 <label class="form-label" for="female">
                                 Female
                                 </label>
                             </div>
                         </div>
+								<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" *ngIf="gender.invalid && !gender.touched">Select required option</small>
                     </div>
                     <div class="form-group row">
                         <div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
                             <label class="col-form-label">Phone No</label>
                         </div>
                         <div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
-                            <input type="text" class="form-control form-control-sm" name="phoneno" ngModel required>
+                            <input type="text" class="form-control form-control-sm" name="phoneno" ngModel #phoneno="ngModel" pattern="^[0-9]{10}$" required>
                         </div>
+								<div class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" *ngIf="phoneno.invalid &&  (phoneno.touched || phoneno.dirty)">
+									<div class="field-message-div1" *ngIf="phoneno.errors?.['required']">Phone no is required field</div>
+									<div class="field-message-div1" *ngIf="phoneno.errors?.['pattern']">Phone number must be a 10-digit number</div>
+								 </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
                             <label class="col-form-label">Email-Id</label>
                         </div>
                         <div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
-                            <input type="text" class="form-control form-control-sm" name="email" ngModel required>
+                            <input type="text" class="form-control form-control-sm" name="email" ngModel #email="ngModel" required email>
                         </div>
+								<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" *ngIf="email.invalid && email.touched">Enter email in required format</small>
                     </div>
                     <div class="form-group row">
                         <div class="col-xs-6 col-sm-4 col-md-4 field-label-div">
                             <label class="col-form-label">Permnant Address</label>
                         </div>
                         <div class="col-xs-6 col-sm-8 col-md-8 field-value-div">
-                            <input type="text" class="form-control form-control-sm" name="address" ngModel>
+                            <input type="text" class="form-control form-control-sm" name="address" #address="ngModel" ngModel required>
                         </div>
+								<small class="col-sm-8 offset-sm-4 col-md-8 offset-md-4 field-message-div" *ngIf="address.invalid && address.touched">Permnant Address is required field</small>
                     </div>
 
                 <div class="form-group row">
-                    <div class="col-md-8 offset-sm-4 offset-md-4">
-                        <button class="btn btn-success" type="submit" value="Submit">Update</button>
+                    <div class=" col-sm-8 offset-sm-4 col-md-8 offset-md-4">
+                        <button class="btn btn-success" type="submit" value="Submit" [disabled]="!myForm.valid">Update</button>
                     </div>
                 </div>                
             </form>

@@ -2,6 +2,16 @@
     line-height: 1;
     box-sizing: border-box;
   }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-control-sm {
+    width: 225px;
+  }
   
   table {
     border: 1px solid #ccc;
@@ -67,3 +77,30 @@
     overflow:scroll;
     height:120px;
   }
+
+  input.ng-invalid.ng-touched, select.invalid-textbox, table.invalid-tablerow {
+    border: red 1px solid;
+  }
+
+  small.field-message-div {
+    color: red;
+  }
+
+  @media (max-width: 767px) {
+
+    .field-label-div {
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+  }
+
+  @media (min-width: 768px) { 
+
+    .field-label-div {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+  }
+

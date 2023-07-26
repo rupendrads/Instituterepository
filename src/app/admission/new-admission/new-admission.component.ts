@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { NgForm } from '@angular/forms'; 
 import { iCourse, iSubject } from '../../course/models/course.model';
 import { iInstitute } from '../../institute/models/institute.model';
 import { institutes } from '../../institute/services/data';
@@ -17,15 +18,19 @@ import { InstituteService } from "src/app/institute/services/institute.service";
     styleUrls: ['./new-admission.component.css']
   })
   export class NewAdmission implements OnInit {
+      @ViewChild('myForm') form!: NgForm;
+
       institutes: iInstitute[] = [];
       courses: iCourse[] = [];
       selectedCourse: iCourse|undefined = undefined;
       selectedSubjects: iSubject[]|undefined = undefined;
       refUsers: User[] = [];
       anyReferral: boolean = false;
-      admission: Admission;
+      admission: Admission;   
       instituteId: number|undefined;
       instituteName:string = "";
+
+      model: any = {course: ''};
 
       constructor(private userService: UserService,
         private authService: AuthService,

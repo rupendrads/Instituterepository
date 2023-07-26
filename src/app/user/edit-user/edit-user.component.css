@@ -8,6 +8,15 @@
     width: 225px;
 }
 
+input.ng-invalid.ng-touched.ng-dirty, select.invalid-textbox {
+    border: red 1px solid;
+  }
+
+small.field-message-div,.field-message-div1 {
+    color: red;
+    font-size: smaller;
+  }
+
 @media (max-width: 767px) {
 
     .field-label-div {
